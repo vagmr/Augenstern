@@ -2,7 +2,7 @@
 
 该项目是我前端的一个新的起点
 ##实例图片
-![图片描述](https://github.com/vagmr/Augenstern/blob/main/res/1.jpg)
+![图片描述](https://tse3-mm.cn.bing.net/th/id/OIP-C.AAWaQawRUe1qfyoceRhPjAHaNK?pid=ImgDet&rs=1)
 
 ## 贡献
 
