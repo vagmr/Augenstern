@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ZH-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问卷</title>
+</head>
+
+<body>
+    <form>
+        <h1 align="center">一个问卷</h1>
+        <!-- 单选框，同一个name只能选多个 -->
+        <h4>1.是男是女</h4>
+        <input type="radio" name="opt1">男
+        <input type="radio" name="opt1">女
+        <input type="radio" name="opt1" checked="1">其他
+        <!-- 多选框 -->
+        <h4>2.喜欢什么食物</h4>
+        <input type="checkbox" name="opt2">香蕉
+        <input type="checkbox" name="opt2">胡桃
+        <input type="checkbox" name="opt2">香蕉
+        <input type="checkbox" name="opt2">其他
+        <!-- 文件框 -->
+        <h4>3.上传图片</h4>
+        <input type="file" name="file">
+        <h4>4.简单的自我介绍</h4>
+        <input type="text" name="txt" style="height:250px;;width:350px;color:red;" value="....">
+        <br />
+        <br /><br />
+        <!-- 重置页面信息 -->
+        <input type="reset">
+    </form>
+
+</body>
+
+</html>
