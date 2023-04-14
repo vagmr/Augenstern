@@ -1,0 +1,53 @@
+.video-background {
+    position: relative;
+    width: 1920px;
+    height: 100dvh;
+    /* 设置宽高以填充整个视窗 */
+
+
+
+
+}
+
+.video-background video {
+    position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    background-repeat: no-repeat;
+    z-index: -1;
+    width: 1920px;
+    /* height: 100%; */
+    background-position: right;
+
+
+    /* 将视频设置在最底层 */
+
+    /* transform: translate(-50%, -50%); */
+    /* min-width: 100%; */
+    /* 此属性将确保视频宽度不会小于容器宽度 */
+    /* min-height: 100%; */
+    /* 此属性将确保视频高度不会小于容器高度*/
+
+
+}
+
+p {
+    text-align: center;
+    color: yellowgreen;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+
+
+
+}
+
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    background-attachment: scroll;
+}
