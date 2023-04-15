@@ -70,7 +70,7 @@
             /* 点虚线边框 */
             border-right: 5px dotted rgb(99, 99, 99);
             /* 复合写法 */
-            background: pink url(res/3.png) no-repeat scroll right;
+            background: pink url(https://github.com/vagmr/Augenstern/blob/main/res/3.png) no-repeat scroll right;
         }
     </style>
        </head>
