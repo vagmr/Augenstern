@@ -21,8 +21,24 @@
 
 
 <body>
-    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的开始</h1>
+      <style>
+        .nav {
+            width: 400px;
+            height: 325px;
+            border-top: 5px solid palevioletred;
+            border-bottom: 5px solid rgb(47, 184, 47);
+            /* 虚线边框 */
+            border-left: 5px dashed rgb(45, 87, 66);
+            /* 点虚线边框 */
+            border-right: 5px dotted rgb(99, 99, 99);
+            /* 复合写法 */
+            background: pink url(res/3.png) no-repeat scroll right;
+        }
+    </style>
+    <body>
+    <div class="nav">
+    </div>
+    </body>
     <a href="res/1.jpg"><ins><strong>
                 <h4>下&nbsp;&gt;&lt;&nbsp;载</h4>
             </strong></ins></a><br />
