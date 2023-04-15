@@ -64,13 +64,7 @@
             <th>第二栏</th>
             <th>第三栏</th>
         </tr>
-        <tr>
-
-            <td><a href="3.html">项目1</a></td>
-            <td><a href="4.html">项目2</a></td>
-            <td><a href="5.html">项目3</a></td>
-
-        </tr>
+    
     </table>
 
 </body>
