@@ -18,26 +18,7 @@
 - [作者个人网站](https://github.com/vagmr)
 
 ## 代码实例
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="new">新的开始</title>
-    <style>
-        #new1 {
-            font-style: italic;
-            font-size: 20px;
-            font-weight: 900;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: green;
-        }
 
-        .new {
-            font: italic 30px '黑体';
-            color: brown;
-        }
-    </style>
-</head>
 
 <body>
     <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,8 +45,6 @@
             <th>第二栏</th>
             <th>第三栏</th>
         </tr>
-    
-    </table>
 
 </body>
  ## ========================
