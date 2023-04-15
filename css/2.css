@@ -4,9 +4,6 @@
     height: 100dvh;
     /* 设置宽高以填充整个视窗 */
 
-
-
-
 }
 
 .video-background video {
@@ -18,10 +15,7 @@
     width: 1920px;
     /* height: 100%; */
     background-position: right;
-
-
     /* 将视频设置在最底层 */
-
     /* transform: translate(-50%, -50%); */
     /* min-width: 100%; */
     /* 此属性将确保视频宽度不会小于容器宽度 */
@@ -29,6 +23,24 @@
     /* 此属性将确保视频高度不会小于容器高度*/
 
 
+}
+
+.new {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+
+}
+
+
+.new a {
+    width: 331px;
+    height: 68px;
+    background: url(../res/1.webp) no-repeat;
+    background-position: center bottom;
+    background-color: pink;
+    display: inline-block;
 }
 
 p {
@@ -41,12 +53,65 @@ p {
 
 }
 
-.inner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.nav {
+    height: 200px;
+    width: 100%;
+    background: rgba(0, 0, 0, .3);
 }
+
+.nav a {
+    width: 120px;
+    height: 58px;
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: skyblue;
+    line-height: 58px;
+    text-align: center;
+
+}
+
+.nav #v1 {
+    background: url(../res/bg/bg1.png) no-repeat;
+}
+
+.nav #v2 {
+    background: url(../res/bg/bg2.png) no-repeat;
+}
+
+.nav #v3 {
+    background: url(../res/bg/bg3.png) no-repeat;
+}
+
+.nav #v4 {
+    background: url(../res/bg/bg4.png) no-repeat;
+}
+
+.nav #v5 {
+    background: url(../res/bg/bg5.png) no-repeat;
+}
+
+.nav #v1:hover {
+    background-image: url(../res/bg/bg11.png);
+}
+
+.nav #v2:hover {
+    background-image: url(../res/bg/bg4.png);
+}
+
+.nav #v3:hover {
+    background-image: url(../res/bg/bg5.png);
+}
+
+.nav #v4:hover {
+    background-image: url(../res/bg/bg1.png);
+}
+
+.nav #v5:hover {
+    background-image: url(../res/bg/bg22.png);
+}
+
 
 body {
     background-attachment: scroll;
