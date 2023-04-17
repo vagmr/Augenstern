@@ -59,22 +59,4 @@
             src="https://ts1.cn.mm.bing.net/th/id/R-C.9bfd3c81badbdd861850bd214aa03794?rik=vU29Rq81pe42Ww&riu=http%3a%2f%2fimg.mm4000.com%2ffile%2f8%2fef%2f223f9a64d0.jpg&ehk=HbNtid2umY5dfcL9VvNqhkHSvwFcCX%2fNUhYXTMYc%2fV8%3d&risl=&pid=ImgRaw&r=0">
 </body>
 <head>
-   <style>
-        .nav {
-            width: 400px;
-            height: 325px;
-            border-top: 5px solid palevioletred;
-            border-bottom: 5px solid rgb(47, 184, 47);
-            /* 虚线边框 */
-            border-left: 5px dashed rgb(45, 87, 66);
-            /* 点虚线边框 */
-            border-right: 5px dotted rgb(99, 99, 99);
-            /* 复合写法 */
-            background: pink url(res/3.png) no-repeat scroll right;
-        }
-    </style>
-       </head>
-    <body>
-    <div class="nav">
-    </div>
-   </body>
+     
