@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #868585;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.left>ul {
+    margin: 20px;
+}
+
+li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 0 0 30px;
+}
+
+li a:hover {
+    box-shadow: 0 10px 30px;
+    background-color: red;
+}
+
+.about {
+    height: 460px;
+    width: 1266px;
+    margin: 20px auto;
+    background-color: rgb(244, 234, 234);
+}
+
+.left {
+    float: left;
+    height: 460px;
+    width: 234px;
+    background-color: #a5a3a3;
+}
+
+.right {
+    float: left;
+    height: 460px;
+    width: 1032px;
+}
+
+.right:hover {
+    box-shadow: 0 10px 30px;
+}
+
+.right img {
+    height: 460px;
+    width: 100%;
+}
+
+.main {
+    height: 628px;
+    width: 1240px;
+    background-color: #f5f5f5;
+    margin: 20px auto;
+}
+
+.mleft {
+    float: left;
+    width: 234px;
+    height: 628px;
+    margin-right: 10px;
+}
+
+.mleft img {
+    width: 234px;
+    height: 614px;
+}
+
+.mleft img:hover {
+    box-shadow: 0 10px 40px;
+    color: hotpink;
+}
+
+.mright {
+    float: left;
+    width: 978px;
+    height: 628px;
+}
+
+.inner {
+    float: left;
+    width: 234px;
+    height: 300px;
+    background-color: #fff;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.inner:hover {
+    box-shadow: 0px 10px 20px;
+    color: skyblue;
+}
+
+.inner a {
+    display: block;
+    width: 234px;
+    height: 260px;
+    padding: 20px 0px;
+}
+
+.inner img {
+    width: 160px;
+    height: 160px;
+}
+
+.v1 {
+    display: inline-block;
+    width: 214px;
+    height: 21px;
+    font-size: 14px;
+    margin: 0px 10px 2px;
+}
+
+.v2 {
+    display: inline-block;
+    width: 214px;
+    height: 18px;
+    font-size: 12px;
+    margin: 0px 10px 10px;
+    color: #B0B0B0;
+}
+
+.v3 {
+    display: inline-block;
+    width: 214px;
+    height: 18px;
+    font-size: 14px;
+    margin: 0px 10px 14px;
+    color: #FF6700;
+}
