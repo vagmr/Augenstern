@@ -1,0 +1,36 @@
+import gradio as gr
+import requests
+from pydub import AudioSegment
+from pydub.playback import play
+
+def download_music(url):
+    response = requests.get(url)
+    with open('temp.mp3', 'wb') as f:
+        f.write(response.content)
+    return 'temp.mp3'
+
+def play_music(audio_file):
+    sound = AudioSegment.from_file(audio_file.name)
+    play(sound)
+
+audio_choice = gr.inputs.Radio(['上传本地音乐文件', '从Kuwo下载音乐'], label="请选择音乐来源")
+audio_file = gr.inputs.File(label='选择音乐文件', type='file')
+kuwo_url = gr.inputs.Textbox(default='http://', label="请输入Kuwo音乐链接")
+
+def choose_input_type(choice, audio_file, url):
+    if choice == '上传本地音乐文件':
+        return audio_file
+    else:
+        music_file = download_music(url)
+        return music_file
+
+iface = gr.Interface(play_music, 
+                     [audio_choice, audio_file, kuwo_url],
+                     None, 
+                     title='选择并播放音乐文件', 
+                     description='上传您喜欢的音乐文件或输入Kuwo链接以在线下载并播放音乐')
+                     
+iface.input_interfaces[0].function = choose_input_type
+iface.renew_server()
+
+iface.launch()

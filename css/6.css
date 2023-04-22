@@ -1,0 +1,188 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.w {
+    width: 1200px;
+    margin: auto;
+}
+
+.header {
+    /* 头部像素 */
+    height: 42px;
+    color: #f3f5f7;
+    margin: 30px auto;
+    background-color: #f3f5f7;
+}
+
+.img {
+    float: left;
+    width: 198px;
+    height: 42px;
+    background-image: url(../res/logo4.png);
+}
+
+.index {
+    float: left;
+    margin-left: 60px;
+
+}
+
+.index ul li {
+    float: left;
+    margin: 0 15px;
+}
+
+.index ul li a {
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    font-size: 18px;
+    padding: 0px 10px;
+}
+
+.index ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+.sch {
+    float: left;
+    margin-left: 70px;
+}
+
+.but {
+    float: left;
+    width: 300px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    border-right: 0;
+    color: #bfbfbf;
+    font-size: 14px;
+    padding-left: 15px;
+}
+
+.input {
+    height: 42px;
+    width: 52px;
+    background-image: url(../res/btn.png);
+}
+
+.last {
+    float: left;
+    margin-left: 30px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #666;
+}
+
+.banner {
+    height: 420px;
+    background: url(../res/banner.png) no-repeat center;
+    background-color: #1c036c;
+}
+
+.inw {
+    float: left;
+    width: 190px;
+    height: 420px;
+    background-color: #14034b;
+}
+
+.inw li {
+    position: relative;
+    padding-left: 20px;
+    margin: 5px 0;
+
+}
+
+.inw span {
+    position: absolute;
+    /* 子元素绝对定位 */
+    top: 0;
+    right: 0;
+    width: 30px;
+    /* 设置 ">" 符号的宽度 */
+    text-align: center;
+}
+
+.inw ul li a {
+    display: inline-block;
+    height: 42px;
+    font-size: 14px;
+    color: white;
+    line-height: 42px;
+}
+
+.inw a:hover {
+    color: #00a4ff;
+}
+
+.right1 {
+    float: right;
+    height: 300px;
+    width: 230px;
+    background-color: #ffffff;
+    margin-top: 64px;
+}
+
+.right1 h2 {
+    height: 48px;
+    background-color: #9bceea;
+    text-align: center;
+    line-height: 48px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.right2 {
+    padding: 0px 20px;
+}
+
+.right1:hover {
+    box-shadow: 0 10px 50px rgb(99, 33, 33);
+}
+
+.right2 li {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+}
+
+.right2 li h4 {
+    /* margin-top: 10px; */
+    font-size: 16px;
+    font-weight: 700;
+
+}
+
+.right2 li p {
+    font-size: 12px;
+    color: #A5A5A5;
+}
+
+.right2 a {
+    display: block;
+    width: 180px;
+    height: 38px;
+    border: 1px solid #22b0ff;
+    margin-top: 20px;
+    padding-left: 0;
+    text-align: center;
+    line-height: 38px;
+    color: #00a4ff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.right2 a:hover {
+    color: hotpink;
+}
