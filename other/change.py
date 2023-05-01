@@ -1,31 +1,46 @@
-import os
 import datetime
+import os
+import subprocess
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
 root = tk.Tk()
-root.title("TS 转 MP4 by vagmr")
+root.title('视频转换器')
+root.geometry('600x400')
 
-# 选择输入文件
-def select_input_file():
-    input_file = filedialog.askopenfilename(
-        defaultextension=".ts",
-        filetypes=[('TS Files', '*.ts'), ('All Files', '*.*')]
-    )
-    input_entry.delete(0, tk.END)  # 清空输入框中的内容
-    input_entry.insert(0, input_file)  # 在输入框中显示选中的文件路径
+# 添加输入文件路径和输出文件路径选择框
+input_label = tk.Label(root, text='输入文件:')
+input_label.grid(row=0, column=0, padx=10, pady=10)
 
-# 选择输出文件
-def select_output_file():
-    output_file = filedialog.asksaveasfilename(
-        title='选择输出文件',
-        defaultextension=".mp4",
-        filetypes=[('MP4 Files', '*.mp4'), ('All Files', '*.*')]
-    )
-    output_entry.delete(0, tk.END)  # 清空输出框中的内容
-    output_entry.insert(0, output_file)  # 在输出框中显示选中的文件路径
+input_entry = tk.Entry(root, width=50)
+input_entry.grid(row=0, column=1, columnspan=2, padx=10, pady=10)
 
-# 转换函数
+output_label = tk.Label(root, text='输出文件:')
+output_label.grid(row=1, column=0, padx=10, pady=10)
+
+output_entry = tk.Entry(root, width=50)
+output_entry.grid(row=1, column=1, columnspan=2, padx=10, pady=10)
+
+def choose_input_file():
+    filename = filedialog.askopenfilename(title='选择输入文件', filetypes=[('TS 文件', '*.ts')])
+    if filename:
+        input_entry.delete(0, tk.END)  # 清空输入框中的内容
+        input_entry.insert(0, filename)  # 在输入框中显示选中的文件路径
+
+def choose_output_file():
+    filename = filedialog.asksaveasfilename(title='选择输出文件', defaultextension='.mp4',
+                                            filetypes=[('MP4 文件', '*.mp4')])
+    if filename:
+        output_entry.delete(0, tk.END)  # 清空输出框中的内容
+        output_entry.insert(0, filename)  # 在输出框中显示选中的文件路径
+
+input_button = tk.Button(root, text='选择文件', command=choose_input_file)
+input_button.grid(row=0, column=3, padx=10, pady=10)
+
+output_button = tk.Button(root, text='选择文件', command=choose_output_file)
+output_button.grid(row=1, column=3, padx=10, pady=10)
+
+# 添加转换按钮和进度条
 def convert():
     # 获取用户输入的文件路径和输出路径
     input_file = input_entry.get()
@@ -36,6 +51,10 @@ def convert():
         tk.messagebox.showerror('错误', '输入文件不存在！')
         return
 
+    # 显示进度条
+    progress.config(mode='indeterminate')
+    progress.start()
+
     # 如果未命名输出文件，则使用默认名称
     if not output_file:
         default_name = f'vamgr{datetime.datetime.now().strftime("%Y%m%d")}.mp4'
@@ -44,7 +63,19 @@ def convert():
         output_entry.insert(0, output_file)  # 在输出框中显示选中的文件路径
 
     # 使用FFmpeg将ts文件转换为mp4文件
-    os.system(f'ffmpeg -i "{input_file}" -c copy "{output_file}"')
+    cmd = f'ffmpeg -i "{input_file}" -c copy "{output_file}"'
+    log_text.insert(tk.END, f'\n> {cmd}\n')
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+    while True:
+        line = proc.stdout.readline()
+        if not line:
+            break
+        log_text.insert(tk.END, line.decode('utf-8'))
+        log_text.see(tk.END)
+        log_text.update_idletasks()
+
+    # 停止并销毁进度条
+    progress.stop()
 
     # 显示转换完成提示框
     tk.messagebox.showinfo('提示', '转换完成！')
@@ -56,25 +87,19 @@ def convert():
     if result == 'yes':
         os.remove(input_file)
 
-# 创建 Label 和 Entry 控件
-input_label = tk.Label(root, text="输入文件：")
-input_label.grid(row=0, column=0, padx=10, pady=10)
-input_entry = tk.Entry(root, width=50)
-input_entry.grid(row=0, column=1, padx=10, pady=10)
+    progress.destroy()
 
-output_label = tk.Label(root, text="输出文件：")
-output_label.grid(row=1, column=0, padx=10, pady=10)
-output_entry = tk.Entry(root, width=50)
-output_entry.grid(row=1, column=1, padx=10, pady=10)
+convert_button = tk.Button(root, text='开始转换', command=convert)
+convert_button.grid(row=2, column=1, pady=10)
 
-# 创建选择文件和转换按钮
-select_input_button = tk.Button(root, text="选择输入文件", command=select_input_file)
-select_input_button.grid(row=0, column=2, padx=10, pady=10)
+progress = tk.ttk.Progressbar(root, length=300)
+progress.grid(row=2, column=2)
 
-select_output_button = tk.Button(root, text="选择输出文件", command=select_output_file)
-select_output_button.grid(row=1, column=2, padx=10, pady=10)
+# 添加日志输出区域
+log_label = tk.Label(root, text='输出日志:')
+log_label.grid(row=3, column=0, padx=10, pady=10)
 
-convert_button = tk.Button(root, text="转换", command=convert)
-convert_button.grid(row=2, column=1, padx=10, pady=10)
+log_text = tk.Text(root, height=5)
+log_text.grid(row=3, column=1, pady=10)
 
 root.mainloop()
