@@ -81,12 +81,12 @@ async function execute_autogpt(args) {
     // Sanity check
     if (args.goals[0] == '') {
         if (zone_error.classList.contains('hidden')) zone_error.classList.remove('hidden')
-        zone_error.innerHTML = 'You need to specify at least one goal'
+        zone_error.innerHTML = '你至少需要指定一个目标'
         return
     }
     if (args.personality == '') {
         if (zone_error.classList.contains('hidden')) zone_error.classList.remove('hidden')
-        zone_error.innerHTML = 'You need to specify a personality'
+        zone_error.innerHTML = '你需要指定一个人格'
         return
     }
     if (args.name == '') {
