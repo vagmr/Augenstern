@@ -3,6 +3,8 @@ import os
 import subprocess
 import tkinter as tk
 from tkinter import filedialog, messagebox
+from tkinter import ttk
+
 
 root = tk.Tk()
 root.title('视频转换器')
@@ -92,14 +94,14 @@ def convert():
 convert_button = tk.Button(root, text='开始转换', command=convert)
 convert_button.grid(row=2, column=1, pady=10)
 
-progress = tk.ttk.Progressbar(root, length=300)
+progress = ttk.Progressbar(root, length=300)
 progress.grid(row=2, column=2)
 
 # 添加日志输出区域
 log_label = tk.Label(root, text='输出日志:')
-log_label.grid(row=3, column=0, padx=10, pady=10)
+log_label.grid(row=7, column=0, padx=10, pady=10)
 
-log_text = tk.Text(root, height=5)
-log_text.grid(row=3, column=1, pady=10)
+log_text = tk.Text(root, height=17)
+log_text.grid(row=7, column=1, pady=10)
 
 root.mainloop()
