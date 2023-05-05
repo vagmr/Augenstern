@@ -8,7 +8,7 @@ import os
 import sys
 import traceback
 # import markdown
-
+from IPython.display import display, Javascript
 
 
 my_api_key = "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"    # 在这里输入你的 API 密钥
@@ -235,13 +235,15 @@ def update_induction(new_ai_induction, new_human_induction):
     return [{"role": "assistant", "content": new_ai_induction}, {"role": "user", "content": new_human_induction}]
 
 
+
 with gr.Blocks() as demo:
     gr.Text("欢迎使用 AI 机器人，本程序由vagmr开发。请注意，本程序为开源项目，不保证回答的准确性和完整性，仅供参考，请谨慎使用！")
     
     # 后面是原来的代码
     keyTxt = gr.Textbox(show_label=True, placeholder=f"在这里输入你的OpenAI API-key...",
                         value=initial_keytxt, label="API Key").style(container=True)
-    chatbot = gr.Chatbot().style(color_map=("#1D51EE", "#585A5B"))
+    chatbot = gr.Chatbot().style(color_map=("#1D51EE", "#585A5B"), height="600px")
+
     context = gr.State([])
     firstQAPrompts = gr.State([])
     lastInductionPrompts = gr.State([])
