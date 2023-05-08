@@ -1,6 +1,5 @@
 # English README
-
-[English version](https://github.com/Micah123321/AutoOpenCAK/blob/main/README-EN.md)
+目前正在制作中
 
 # 自动启动应用程序
 
