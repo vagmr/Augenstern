@@ -161,7 +161,7 @@ namespace OpenCorepiAndBypass
                 string GamePath = ini.ReadValue("Settings", "GamePath") + @"\";
                 Console.WriteLine(GamePath);
 
-
+                //米桑的检测绕过
                 //判断文件夹是否存在,不存在报错并且重新选择
                 if (!Directory.Exists(GamePath))
                 {
@@ -182,7 +182,7 @@ namespace OpenCorepiAndBypass
                 Console.WriteLine(rm.GetString("Bypass_Message"));
                 Console.WriteLine("");
                 Console.WriteLine(rm.GetString("HoYoKProtect_no_exist"));
-
+                // 调用FileUtils类中的ChangeFileName方法达到绕过检测的目的。
 
                 FileUtils.ChangeFileName(@GamePath + "HoYoKProtect.sys", @GamePath + "HoYoKProtect.sys.bak", "HoYoKProtect.sys");
                 FileUtils.ChangeFileName(@GamePath + "mhypbase.dll", @GamePath + "mhypbase.dll.bak", "mhypbase.dll");
