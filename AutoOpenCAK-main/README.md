@@ -4,7 +4,7 @@
 
 # 自动启动应用程序
 
-本项目是一个使用C#编写的自动启动应用程序,可定制化的绕过原神hoyoprot 并且同时启动任意dll注入器 并且可同时启动3dm原神模型修改工具以及ce修改
+本项目是一个使用C#编写的自动启动应用程序,可定制化的绕过原神hoyoprot 并且同时启动任意dll注入器 并且可同时启动3dm原神模型修改工具以及ce修改,对于产生的一切不良后果概不负责
 
 # 运行效果
 ![image](https://user-images.githubusercontent.com/76832465/236788391-98559835-a629-48e7-923b-ccdccf39f685.png)
@@ -14,7 +14,6 @@
 - 由 **Strigger** 编写的 **Cotton Buds** 因为是ct表构成的结构 无法完成如:地图传送 内置米哈游小地图等功能
 - 而 **korepi** 项目因为部分代码缺失导致无法使用剧情加速,杀戮光环等功能
 - 使用本程序能在开启 **korepi** 项目的同时过掉验证同时开启 **Cotton Buds**
-- 做到不输于 **AKEBI** 的游戏体验
 
 # 用途
 - 执行配置好,就可以做到一键运行账号切换器 任意注入方式启动器 过检测的方式启动原神
@@ -22,7 +21,7 @@
 
 ## 如何使用
 
-1. 打开release下载最新版本[Releases](https://github.com/Micah123321/AutoOpenCAK/releases)
+1. 打开release下载最新版本
 2. 想要愉悦的使用本工具,最理想的情况是同拥有GenshinAccount.exe(账号切换工具) 3dm(模型修改工具)  **korepi** 以及**Cotton Buds**
 3. 请根据自己的情况配置config.ini
 
