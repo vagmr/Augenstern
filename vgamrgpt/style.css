@@ -1,0 +1,86 @@
+/* Reset styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styles */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.container {
+    display: flex;
+    min-height: calc(100vh - 100px);
+    /* Set minimum height to fill the viewport */
+}
+
+main {
+    padding: 1rem;
+    flex: 1;
+    /* Make the main content area grow to fill the remaining space */
+}
+
+aside {
+    background-color: #eee;
+    padding: 1rem;
+    width: 25%;
+    /* Set the width of the sidebar */
+}
+
+footer {
+    background-color: #ccc;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Chat styles */
+
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#chat-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+#chat-input {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+#input-field {
+    flex-grow: 1;
+    padding: 0.5rem;
+    margin-right: 1rem;
+}
+
+#send-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.other {
+    background: url(../res/1.jpg) no-repeat;
+}
