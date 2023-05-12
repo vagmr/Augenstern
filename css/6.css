@@ -12,6 +12,20 @@ li {
     list-style: none;
 }
 
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
 .w {
     width: 1200px;
     margin: auto;
@@ -185,4 +199,169 @@ li {
 
 .right2 a:hover {
     color: hotpink;
+}
+
+/* ---------------------------------------------------------------- */
+.jptj {
+    background-color: #fff;
+    margin-top: 10px;
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 1px 0px 3px 3px rgba(0, 0, 0, .2);
+}
+
+.jptj ul {
+    float: left;
+    margin-left: 30px;
+}
+
+.jptj ul li {
+    float: left;
+}
+
+
+.jptj ul li a {
+    padding: 0px 35px;
+    font-size: 16px;
+    color: #050505;
+    border-left: 1px solid #ccc;
+}
+
+#s1 {
+    float: left;
+    color: #00a4ff;
+    margin-left: 35px;
+    font-size: 16px;
+}
+
+#s2 {
+    float: right;
+    color: #00a4ff;
+    margin-right: 30px;
+    font-size: 14px;
+}
+
+/* 课程盒子部分 */
+.maindiv {
+    margin-top: 35px;
+
+
+}
+
+/* 上半部分 */
+.up {
+    height: 40px;
+    border-bottom: 1px solid black;
+}
+
+#l1 {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+}
+
+#l2 {
+    float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+/* 下半部分 */
+.bottom div {
+    float: left;
+    height: 270px;
+    width: 230px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 1px 0px 3px 3px rgba(0, 0, 0, .2);
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.bottom div img {
+    width: 100%;
+}
+
+.bottom div h4 {
+    margin-top: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 24px;
+    color: #050505;
+}
+
+.bottom div p {
+    margin-top: 20px;
+    margin-bottom: 27px;
+}
+
+.bottom div p span {
+    font-size: 12px;
+    color: #ff7c2d;
+}
+
+.bottom div p a {
+    font-size: 12px;
+    color: #999999;
+}
+
+.bottom div:hover {
+    background-color: palevioletred;
+    color: white;
+}
+
+/* ----------------end---------------- */
+/* footer区域 */
+.footer {
+    /* background-color: pink; */
+    height: 417px;
+}
+
+.footer .inf {
+    background-color: white;
+}
+
+.fl {
+    margin-top: 125px;
+    float: left;
+    height: 180px;
+    width: 500px;
+}
+
+.fl p {
+    margin-top: 25px;
+    font: size 12px;
+    margin-bottom: 30px;
+}
+
+.fl a {
+
+    font-size: 16px;
+    color: #00a4ff;
+    border: 2px solid #00a4ff;
+    padding: 15px 30px;
+    font-weight: 700;
+}
+
+.fr {
+    float: right;
+    height: 200px;
+    width: 580px;
+    background-color: #fff;
+    margin-top: 125px;
+}
+
+.fr dl {
+    float: left;
+    margin-right: 90px;
+}
+
+.fr dl dt {
+    font-size: 20px;
+}
+
+.fr dl dd {
+    text-align: center;
+    line-height: 30px;
+    height: 30px
 }

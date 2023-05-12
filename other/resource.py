@@ -1,7 +1,7 @@
 from selenium import webdriver
 import time
 
-url = "http://xswlxswl.club/#/"
+url = "https://xgo.vagmrgpt.top/zh"
 
 # 设置Edge浏览器无界面模式
 options = webdriver.EdgeOptions()
