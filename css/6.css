@@ -245,7 +245,6 @@ li {
 .maindiv {
     margin-top: 35px;
 
-
 }
 
 /* 上半部分 */
@@ -364,4 +363,104 @@ li {
     text-align: center;
     line-height: 30px;
     height: 30px
+}
+
+/* 下面是额外部分 */
+#f1 {
+    float: left;
+    color: #d20e18;
+    font-weight: 700;
+}
+
+.up ul {
+    float: left;
+    margin-left: 350px;
+}
+
+.up ul .first {
+    color: #00a4ff;
+}
+
+.up ul li {
+    float: left;
+    margin-left: 70px;
+}
+
+.up h6 {
+    float: right;
+    color: #a5a5a5;
+    font-size: 12px;
+}
+
+/* 下半部分 */
+.fmain {
+    height: 392px;
+    width: 1209px;
+    /* background-color: pink; */
+}
+
+.bl {
+
+    float: left;
+    margin-right: 15px;
+}
+
+.br {
+    float: left;
+    width: 957px;
+    height: 392px;
+}
+
+.br img {
+    /* float: right; */
+    width: 100%;
+    /* margin-bottom: 10px; */
+}
+
+.br div {
+    float: left;
+    margin-top: 10px;
+    width: 228px;
+    height: 270px;
+    text-align: center;
+    box-shadow: 1px 0px 3px 3px rgba(0, 0, 0, .2);
+    margin-right: 10px;
+}
+
+.br div img {
+    width: 100%;
+}
+
+.br div h4 {
+    margin-top: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 24px;
+    color: #050505;
+}
+
+.br div p {
+    margin-top: 20px;
+    margin-bottom: 27px;
+}
+
+.br div p span {
+    font-size: 12px;
+    color: #ff7c2d;
+}
+
+.br div p a {
+    font-size: 12px;
+    color: #999999;
+}
+
+.br div:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+.brp {
+    width: 1200px;
+    margin-bottom: 0px;
+    /* margin-top: 20px; */
 }
