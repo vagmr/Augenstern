@@ -267,6 +267,7 @@ li {
 
 /* 下半部分 */
 .bottom div {
+    position: relative;
     float: left;
     height: 270px;
     width: 230px;
@@ -277,7 +278,13 @@ li {
     margin-bottom: 15px;
 }
 
-.bottom div img {
+.n img {
+    position: absolute;
+    right: -5px;
+    top: 5px;
+}
+
+.bottom div>img {
     width: 100%;
 }
 
@@ -321,7 +328,7 @@ li {
 }
 
 .fl {
-    margin-top: 125px;
+    padding-top: 125px;
     float: left;
     height: 180px;
     width: 500px;
@@ -461,6 +468,7 @@ li {
 
 .brp {
     width: 1200px;
+    height: 300px;
     margin-bottom: 0px;
     /* margin-top: 20px; */
 }

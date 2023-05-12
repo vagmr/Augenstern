@@ -1,0 +1,18 @@
+.one {
+    background-color: pink;
+    height: 200px;
+    width: 222px;
+    position: relative;
+    left: 100px;
+    top: 100px;
+}
+
+.two {
+    background-color: black;
+    height: 200px;
+    width: 222px;
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    color: white;
+}
