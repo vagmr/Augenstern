@@ -1,18 +1,29 @@
 .one {
     background-color: pink;
-    height: 200px;
-    width: 222px;
+    height: 500px;
+    width: 580px;
     position: relative;
-    left: 100px;
-    top: 100px;
+    margin: 40px auto;
+}
+
+.one img {
+    width: 100%;
+    height: 100%;
 }
 
 .two {
-    background-color: black;
-    height: 200px;
-    width: 222px;
     position: absolute;
-    right: 100px;
-    top: 100px;
-    color: white;
+    left: 50%;
+    margin-left: -290px;
+    top: 0px;
+    background: rgba(0, 0, 0, .2) url(../res/arr.png) no-repeat center;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+
+
+.one:hover .two {
+    display: block;
 }
