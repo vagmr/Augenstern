@@ -31,7 +31,15 @@
 
 <body>
     <h1 class="img">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的开始</h1>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的开始
+        <audio id="myaudio" src="res/music.mp3">
+            <!-- 您的浏览器不支持 audio 元素。 -->
+        </audio>
+
+        <button onclick="document.getElementById('myaudio').pause()">暂停</button>
+        <button onclick="document.getElementById('myaudio').play()">播放</button>
+        <button onclick='stars()'>打印</button>
+    </h1>
     <a href="res/1.jpg"><ins><strong>
                 <h4>下&nbsp;&gt;&lt;&nbsp;载</h4>
             </strong></ins></a>

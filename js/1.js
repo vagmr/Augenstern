@@ -29,3 +29,4 @@ function test() {
         alert('年龄为' + age);
     }
 }
+
