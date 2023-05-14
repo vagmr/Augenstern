@@ -26,12 +26,34 @@
             position: relative;
             left: 580px;
         }
+
+        #j1 {
+            display: inline-block;
+            height: 50px;
+            width: 100px;
+            color: skyblue;
+            background-color: red;
+            position: absolute;
+            left: 509px;
+            top: 350px;
+        }
+
+        #j2 {
+            background-color: rgb(16, 222, 212);
+            color: rgb(226, 25, 149);
+            width: 300px;
+            height: 50px;
+            position: absolute;
+            left: 100px;
+            top: 15px;
+            text-align: center;
+            line-height: 50px;
+        }
     </style>
 </head>
 
 <body>
-    <h1 class="img">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的开始
+    <h1 class="img">新的开始
         <audio id="myaudio" src="res/music.mp3">
             <!-- 您的浏览器不支持 audio 元素。 -->
         </audio>
@@ -47,6 +69,9 @@
     <br />
     <a href="https://github.com/vagmr" target="_blank"><img src="res/1.jpg" title="第一张图片" width="500px" height="500px"
             alt="一张人物图片" /></a>
+    <button id="j1"><span onclick="guess()">猜数字</span></button>
+    <div id="j2"> <span id="time"></span></div>
+
 
     <em>
         <a href="#作者主页" title="作者主页">
