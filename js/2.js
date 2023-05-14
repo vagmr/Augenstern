@@ -33,4 +33,17 @@ function stars() {
     }
     console.log(str);
     alert('打印结束')
+    var ary = [65, 67, 123, 98, 12, 34, 13, 100, 90];
+    for (var i = 0; i < ary.length; i++) {
+        for (var j = 0; j < ary.length - i; j++) {
+            if (ary[j] > ary[j + 1]) {
+                var temp;
+                temp = ary[j + 1];
+                ary[j + 1] = ary[j];
+                ary[j] = temp;
+            }
+
+        }
+    }
+    console.log(ary);
 }
