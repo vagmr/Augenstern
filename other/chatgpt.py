@@ -1,6 +1,3 @@
-""" 作者：vagmr
-时间：2021年11月
-功能：实现一个简单的聊天机器人，使用OpenAI GPT-3模型 """
 import json
 import gradio as gr
 import openai

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,33 @@
                 return min;
             },
         }
-        console.log(myMath.max(1, 5, 6));
+        function getRandom(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+        }
+        var ranNum = getRandom(0, 50);
+        var count = 0;
+        while (count <= 4) {
+            var num = prompt('猜0-50之间的一个数字')
+            if (num > ranNum) {
+                alert('你猜大了');
+                count++;
+            }
+            else if (num < ranNum) {
+                alert('你猜小了');
+                count++;
+            }
+            else {
+                alert('你猜对了');
+                break;
+            }
+            if (count > 4) {
+                alert('游戏结束');
+            }
+        }
+
+
     </script>
 </head>
 

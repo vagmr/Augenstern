@@ -157,7 +157,7 @@ function info() {
         }
     }
 }
-    /* alert('欢迎使用简易计算器' + '\n' +
+/* alert('欢迎使用简易计算器' + '\n' +
 '1,加法运算' + '\n' + '2,减法运算' +
 '\n' + '3.乘法运算' + '\n' + '4,除法运算' + '\n'
 + '退出');
@@ -167,25 +167,25 @@ var num2 = prompt('请输入数字2');
 var obj = new Calmulicate();
 while (opt != 5) {
 switch (opt) {
-    case '1':
-        var result = obj.add(num1, num2);
-        alert('结果为' + result);
-        break;
-    case '2':
-        var result = obj.subtract(num1, num2);
-        alert('结果为' + result);
-        break;
-    case '3':
-        var result = obj.multiply(num1, num2);
-        alert('结果为' + result);
-        break;
-    case '4':
-        var result = obj.divide(num1, num2);
-        alert('结果为' + result);
-        break;
-    default:
-        alert('输入有误，请重新输入');
-        break;
+case '1':
+    var result = obj.add(num1, num2);
+    alert('结果为' + result);
+    break;
+case '2':
+    var result = obj.subtract(num1, num2);
+    alert('结果为' + result);
+    break;
+case '3':
+    var result = obj.multiply(num1, num2);
+    alert('结果为' + result);
+    break;
+case '4':
+    var result = obj.divide(num1, num2);
+    alert('结果为' + result);
+    break;
+default:
+    alert('输入有误，请重新输入');
+    break;
 }
 opt = prompt('输入你的选项');
 }
@@ -194,17 +194,42 @@ opt = prompt('输入你的选项');
 class Calmulicate {
 constructor() {
 this.add = function (num1, num2) {
-    return Number(num1) + Number(num2);
+return Number(num1) + Number(num2);
 }
 this.subtract = function (num1, num2) {
-    return Number(num1) - Number(num2);
+return Number(num1) - Number(num2);
 }
 this.multiply = function (num1, num2) {
-    return Number(num1) * Number(num2);
+return Number(num1) * Number(num2);
 }
 this.divide = function (num1, num2) {
-    return Number(num1) / Number(num2);
+return Number(num1) / Number(num2);
 }
 }
 }
 */
+function getRandom(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+}
+var ranNum = getRandom(0, 50);
+var count = 0;
+while (count <= 4) {
+    var num = prompt('猜0-50之间的一个数字')
+    if (num > ranNum) {
+        alert('你猜大了');
+        count++;
+    }
+    else if (num < ranNum) {
+        alert('你猜小了');
+        count++;
+    }
+    else {
+        alert('你猜对了');
+        break;
+    }
+    if (count > 4) {
+        alert('游戏结束');
+    }
+}
