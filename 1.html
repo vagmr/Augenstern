@@ -48,6 +48,81 @@
             top: 15px;
             text-align: center;
             line-height: 50px;
+            font-size: 20px;
+        }
+
+        .about {
+            position: absolute;
+            right: 10px;
+            top: 140px;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+
+            line-height: 20px;
+        }
+
+        .about img {
+            width: 64px;
+            height: 64px;
+            margin-left: 0px;
+        }
+
+        /* 定义进度条的共同样式 */
+        .skill-bar {
+            position: relative;
+            height: 24px;
+            background: linear-gradient(to right, rgb(13, 177, 218), #edfe03);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        /* 插入进度条的伪元素 */
+        .skill-bar::before {
+            content: attr(data-level);
+            /* 使用 data-level 属性来显示熟练度 */
+            position: absolute;
+            top: 0;
+            left: 90px;
+            bottom: 0;
+            width: 0;
+            height: 100%;
+            border-radius: inherit;
+            background: #fff;
+            /* 渐变色需要设置为透明 */
+            transition: width 1s ease-in-out;
+            background: linear-gradient(to right, rgb(13, 177, 218), #edfe03);
+            /* 进度条的渐变色 */
+        }
+
+        /* 使用不同的类名分别设置每种语言的样式 */
+        .cpp {
+            width: 40%;
+        }
+
+        .java {
+            width: 80%;
+        }
+
+        .python {
+            width: 70%;
+        }
+
+        .typescript {
+            width: 40%;
+        }
+
+        .vue {
+            width: 50%;
+        }
+
+        .react {
+            width: 30%;
+        }
+
+        .csharp {
+            width: 45%;
         }
     </style>
 </head>
@@ -59,7 +134,7 @@
         </audio>
         <button onclick='info()'>计算器</button>
         <button onclick="document.getElementById('myaudio').pause()">暂停</button>
-        <button onclick="document.getElementById('myaudio').play()">播放</button>
+        <button onclick="document.getElementById('myaudio').play()">播放zood</button>
         <button onclick='stars()'>打印</button>
     </h1>
     <a href="res/1.jpg"><ins><strong>
@@ -71,7 +146,20 @@
             alt="一张人物图片" /></a>
     <button id="j1"><span onclick="guess()">猜数字</span></button>
     <div id="j2"> <span id="time"></span></div>
-
+    <div class="about">
+        <h2>关于作者</h2>
+        <img src="res/about/author.jpg" alt="作者头像" title="关于">
+        <h3>name:vagmr</h3>
+        <h3>skill:</h3>
+        <div class="skill-bar cpp" data-level="40%">C++</div>
+        <div class="skill-bar java" data-level="80%">Java</div>
+        <div class="skill-bar python" data-level="70%">Python</div>
+        <div class="skill-bar typescript" data-level="40%">TypeScript</div>
+        <div class="skill-bar vue" data-level="50%">Vue.js</div>
+        <div class="skill-bar react" data-level="30%">React</div>
+        <div class="skill-bar csharp" data-level="45%">C#</div>
+        <h3>这个项目是我前端的一个新的起点</h3>
+    </div>
 
     <em>
         <a href="#作者主页" title="作者主页">
