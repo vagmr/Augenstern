@@ -81,7 +81,7 @@ console.log(test); */
 var obj = {
     uName: 16,
     age: 18,
-    addres: lundon,
+    addres: 'lundon',
     show: function () {
         alert('json');
     }
@@ -208,28 +208,45 @@ return Number(num1) / Number(num2);
 }
 }
 */
+// alert(new Date('YYYY-MM-DD hh:mm:ss'))
 function getRandom(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
 }
-var ranNum = getRandom(0, 50);
-var count = 0;
-while (count <= 4) {
-    var num = prompt('猜0-50之间的一个数字')
-    if (num > ranNum) {
-        alert('你猜大了');
-        count++;
-    }
-    else if (num < ranNum) {
-        alert('你猜小了');
-        count++;
-    }
-    else {
-        alert('你猜对了');
-        break;
-    }
-    if (count > 4) {
-        alert('游戏结束');
+function guess() {
+    var ranNum = getRandom(0, 50);
+    var count = 0;
+    while (count <= 4) {
+        var num = prompt('猜0-50之间的一个数字')
+        if (num > ranNum) {
+            alert('你猜大了');
+            count++;
+        }
+        else if (num < ranNum) {
+            alert('你猜小了');
+            count++;
+        }
+        else {
+            alert('你猜对了');
+            break;
+        }
+        if (count > 4) {
+            alert('游戏结束');
+        }
     }
 }
+// 使用 JavaScript 中的 Date 对象和计时器 setInterval()。每秒钟更新一次时间并显示在页面上
+function updateTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    const hour = now.getHours().toString().padStart(2, '0');
+    const minute = now.getMinutes().toString().padStart(2, '0');
+    const second = now.getSeconds().toString().padStart(2, '0');
+    const timeStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+    document.getElementById('time').textContent = timeStr;
+}
+
+setInterval(updateTime, 1000);
