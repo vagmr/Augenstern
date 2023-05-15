@@ -250,3 +250,52 @@ function updateTime() {
 }
 
 setInterval(updateTime, 1000);
+// 倒计时制作实现
+/* 思路用用户输入的总毫秒数减去当前的总毫秒数，再换算成时分秒 */
+/* function getCountDown(time){
+    var currentTime = +new Date();
+    var specifiedTime = +new Date(time);
+    var remainingSeconds = Math.max(0, Math.floor((specifiedTime - currentTime) / 1000));
+    var remainingMinutes = Math.floor(remainingSeconds / 60);
+    var remainingHours = Math.floor(remainingSeconds / 3600);
+    var remainingDays = Math.floor(remainingSeconds / 86400);
+    var hours = Math.floor(remainingSeconds / 3600);
+    var minutes = Math.floor((remainingSeconds % 3600) / 60);
+    var seconds = remainingSeconds % 60;
+    var remainingTime = `${remainingDays}天${hours}小时${minutes}分钟${seconds}秒`;
+    return remainingTime
+}  */
+function getCountDown(time) {
+    var currentTime = +new Date();
+    var specifiedTime = +new Date(time);
+    // 计算指定时间和当前时间之间剩余的总秒数，使用 Math.max(0, ...) 避免剩余秒数为负数。
+    var remainingSeconds = Math.max(0, Math.floor((specifiedTime - currentTime) / 1000));
+    // 计算出剩余的天数，即将剩余总秒数除以 86400（即每天的秒数），并向下取整。
+    var remainingDays = Math.floor(remainingSeconds / 86400);
+    remainingDays = remainingDays < 10 ? '0' + remainingDays : remainingDays;
+    // 接着计算剩余的小时数。由于已经计算出剩余的天数，可以将剩余总秒数对 86400 取模，
+    // 余数除以 3600（即每小时的秒数），向下取整即可。
+    var remainingHours = Math.floor((remainingSeconds % 86400) / 3600);
+    remainingHours = remainingHours < 10 ? '0' + remainingHours : remainingHours;
+    // 接着计算剩余的小时数。由于已经计算出剩余的天数，可以将剩余总秒数对 3600(小时的秒数) 取模，得到不足1小时的
+    // 余数除以 60（即每分钟的秒数），向下取整即可。
+    var remainingMinutes = Math.floor((remainingSeconds % 3600) / 60);
+    remainingMinutes = remainingMinutes < 10 ? '0' + remainingMinutes : remainingMinutes;
+    var remainingSeconds = remainingSeconds % 60;
+    remainingSeconds = remainingSeconds < 0 ? '0' + remainingSeconds : remainingSeconds;
+    var remainingTime = `学习倒计时\n ${remainingDays}天${remainingHours}小时${remainingMinutes}分钟${remainingSeconds}秒`;
+    return remainingTime
+}
+// 定义需要传递的参数
+var timerConfig = {
+    future: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000)
+};
+
+// 每秒钟更新一次剩余时间
+setInterval(function (config) {
+    // 计算剩余时间
+    var remainingTime = getCountDown(config.future);
+
+    // 更新元素内容
+    document.getElementById('fTime').textContent = remainingTime;
+}, 1000, timerConfig);
