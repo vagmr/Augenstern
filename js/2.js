@@ -235,7 +235,7 @@ function guess() {
             alert('游戏结束');
         }
     }
-}
+};
 // 使用 JavaScript 中的 Date 对象和计时器 setInterval()。每秒钟更新一次时间并显示在页面上
 function updateTime() {
     const now = new Date();
@@ -247,7 +247,7 @@ function updateTime() {
     const second = now.getSeconds().toString().padStart(2, '0');
     const timeStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
     document.getElementById('time').textContent = timeStr;
-}
+};
 
 setInterval(updateTime, 1000);
 // 倒计时制作实现
@@ -285,17 +285,21 @@ function getCountDown(time) {
     remainingSeconds = remainingSeconds < 0 ? '0' + remainingSeconds : remainingSeconds;
     var remainingTime = `学习倒计时\n ${remainingDays}天${remainingHours}小时${remainingMinutes}分钟${remainingSeconds}秒`;
     return remainingTime
-}
-// 定义需要传递的参数
-var timerConfig = {
-    future: new Date(Date.now() + 9 * 24 * 60 * 60 * 1000)
 };
+// 定义需要传递的参数
+// var timerConfig = {
+//     future: new Date(Date.now() + 9 * 24 * 60 * 60 * 1000)
+// };
 
 // 每秒钟更新一次剩余时间
-setInterval(function (config) {
+setInterval(function () {
     // 计算剩余时间
-    var remainingTime = getCountDown(config.future);
+    var remainingTime = getCountDown('2023-5-22 18:00:00');
 
     // 更新元素内容
     document.getElementById('fTime').textContent = remainingTime;
-}, 1000, timerConfig);
+}, 1000);
+
+
+// 下面用来实现问候语切换的功能
+

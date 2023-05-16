@@ -137,6 +137,22 @@
             text-align: center;
             color: white;
         }
+
+
+        #saygood {
+            width: 280px;
+        }
+
+        #j5 {
+            position: absolute;
+            left: 630px;
+            top: 124px;
+            /* background-color: pink; */
+        }
+
+        #statement {
+            padding-left: 32px;
+        }
     </style>
 </head>
 
@@ -216,6 +232,29 @@
         </a>
     </p>
     <div id="j3"> <span id="fTime"></span></div>
+
+    <div id="j5">
+        <img src="" alt="" id="saygood">
+        <h3 id="statement">早上好，请进行代码开发</h3>
+    </div>
+    <script>
+        var greetTime = new Date();
+        var H = greetTime.getHours();
+        var greetImg = document.getElementById('saygood');
+        var greetTxt = document.getElementById('statement');
+        if (H < 12) {
+            greetImg.src = '/res/24h/s.gif'
+            greetTxt.innerText = '早上好，请进行代码开发'
+            console.log('代码已执行');
+        } else if (H >= 12 && H < 18) {
+            greetImg.src = '/res/24h/x.gif'
+            greetTxt.innerText = '下午好，请进行代码开发'
+        } else if (H >= 18) {
+            greetImg.src = '/res/24h/w.gif'
+            greetTxt.innerText = '晚上好，请进行代码开发'
+        }
+
+    </script>
 </body>
 
 </html>
