@@ -8,6 +8,8 @@
     <title class="new">新的开始</title>
     <link rel="icon" href="res/favicon_logosc/favicon.ico">
     <script src="js/2.js"></script>
+    <!-- 引入 jQuery 库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
     <style>
         #new1 {
             font-style: italic;
@@ -153,6 +155,28 @@
         #statement {
             padding-left: 32px;
         }
+
+        #quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #quote-wrapper {
+            border: 2px solid #ccc;
+            padding: 20px;
+            background-color: #1c1819;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #quote {
+            font-size: 24px;
+            line-height: 36px;
+            font-style: italic;
+            color: #e50f45;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
@@ -255,6 +279,19 @@
         }
 
     </script>
+    <div id="quote-container">
+        <h1>每日一句</h1>
+        <div id="quote-wrapper">
+            <p id="quote">
+                <script type="text/javascript" src="https://api.xygeng.cn/one/get/"></script>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
 </body>
 
 </html>
