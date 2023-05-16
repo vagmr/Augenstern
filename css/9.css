@@ -1,0 +1,51 @@
+/* 以下是精灵图相关样式 */
+.box01 {
+    display: inline-block;
+    width: 109px;
+    height: 120px;
+    background: url(../res/jlt/abcd.jpg) no-repeat pink 0px -545px;
+}
+
+.box02 {
+    display: inline-block;
+    width: 109px;
+    height: 120px;
+    background: url(../res/jlt/abcd.jpg) no-repeat pink;
+}
+
+.box03 {
+    display: inline-block;
+    width: 109px;
+    height: 120px;
+    background: url(../res/jlt/abcd.jpg) no-repeat pink -98px -128px;
+}
+
+.box04 {
+    display: inline-block;
+    width: 146px;
+    height: 121px;
+    background: url(../res/jlt/abcd.jpg) no-repeat pink -102px -265px;
+}
+
+.box05 {
+    display: inline-block;
+    width: 120px;
+    height: 125px;
+    background: url(../res/jlt/abcd.jpg) no-repeat pink -137px -410px;
+}
+
+/* 以下代码用来定位
+ */
+.dwy {
+    position: absolute;
+    top: 509px;
+    left: 399px;
+    /* background: linear-gradient(to right, rgb(33, 10, 164), #0ad4f8); */
+}
+
+/* 定位我的github标签 */
+.dw {
+    position: absolute;
+    top: 647px;
+    right: 10px;
+}
