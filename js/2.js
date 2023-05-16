@@ -288,7 +288,7 @@ function getCountDown(time) {
 }
 // 定义需要传递的参数
 var timerConfig = {
-    future: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000)
+    future: new Date(Date.now() + 9 * 24 * 60 * 60 * 1000)
 };
 
 // 每秒钟更新一次剩余时间

@@ -5,11 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>测试</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
 </head>
 
 <body>
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button> <br>
+    <img src="res/zxy.jpg" alt="图片" title="张学友">
+    <!-- <p class="test"></p>
+    <p class="test"></p> -->
 
+
+    <script>
+        var ldh = document.getElementById('ldh')
+        var zxy = document.getElementById('zxy')
+        var img = document.querySelector('img');
+
+        // var test = document.getElementsByClassName('test')
+        // console.log(test);
+
+        ldh.onclick = function () {
+            img.src = "res/ldh.jpg";
+            img.title = "刘德华";
+        }
+        zxy.onclick = function () {
+            img.src = "res/zxy.jpg";
+            img.title = "张学友";
+        }
+    </script>
 </body>
 
 </html>
