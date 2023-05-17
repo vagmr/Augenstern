@@ -37,10 +37,11 @@
         .threeangle {
             height: 0;
             width: 0;
-            border-top: 100px solid transparent;
+
+            /* border-top: 100px solid transparent;
             border-right: 50px solid yellow;
             border-bottom: 0px solid black;
-            border-left: 0px solid blue;
+            border-left: 0px solid blue; */
             /* 简写样式 */
             border-color: transparent red transparent transparent;
             border-style: solid;
@@ -62,6 +63,58 @@
             margin-left: 5px;
             margin-bottom: 5px;
             background: url(res/jlt/sprite.png) no-repeat 0px 0px;
+        }
+
+        .threeangle2 {
+            height: 0;
+            width: 0;
+            border-top: 100px solid transparent;
+            border-right: 0px solid yellow;
+            border-bottom: 0px solid rgb(10, 237, 218);
+            border-left: 50px solid rgb(21, 247, 247);
+            /* 简写样式 */
+            /* border-color: transparent red transparent transparent;
+            border-style: solid;
+            border-width: 50px 22px 0 0; */
+        }
+
+        #ck {
+            margin: 100px auto;
+            width: 300px;
+            height: 40px;
+            float: left;
+            background-color: rgb(200, 178, 214);
+            line-height: 34px;
+
+        }
+
+        #ck input {
+            display: inline-block;
+            height: 20px;
+            /* float: left; */
+            /* line-height: 34px; */
+        }
+
+        #ck p {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 12px;
+            background: url(res/check/right.png) no-repeat;
+            color: white;
+
+        }
+
+        div {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        .message {
+            display: inline-block;
+            font-size: 12px;
+            color: #999;
+            background: url(res/check/right.png) no-repeat left center;
+            padding-left: 20px;
         }
     </style>
 </head>
@@ -87,6 +140,12 @@
             <li></li>
         </ul>
     </div>
+
+    <div id="ck">
+        <input type="text" id="c1">
+        <p class="check">请输入6-16的密码</p>
+    </div>
+
     <script>
         var jlImg = document.querySelectorAll('li');
         for (var i = 1; i < jlImg.length; i++) {
@@ -94,7 +153,17 @@
             jlImg[i].style.backgroundPosition = '0-' + index + 'px';
             console.log('程序已经执行');
         }
+        var sj = document.querySelector('.threeangle');
+        sj.onclick = function () {
+            this.className = 'threeangle2';
+        }
     </script>
+    <br>
+    <div class="register">
+        <input type="password" class="ipt">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+
 </body>
 
 </html>
