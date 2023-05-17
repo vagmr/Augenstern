@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?jljxkf');
+            src: url('fonts/icomoon.eot?jljxkf#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?jljxkf') format('truetype'),
+                url('fonts/icomoon.woff?jljxkf') format('woff'),
+                url('fonts/icomoon.svg?jljxkf#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        span {
+            font-family: 'icomoon';
+            font-size: 100px;
+            color: pink;
+        }
+
+        .threeangle {
+            height: 0;
+            width: 0;
+            border-top: 100px solid transparent;
+            border-right: 50px solid yellow;
+            border-bottom: 0px solid black;
+            border-left: 0px solid blue;
+            /* 简写样式 */
+            border-color: transparent red transparent transparent;
+            border-style: solid;
+            border-width: 50px 22px 0 0;
+        }
+
+        .jl {
+            /* height: 300px; */
+            width: 120px;
+            margin: 120px auto;
+            background-color: powderblue;
+        }
+
+        .jl li {
+            display: block;
+            float: left;
+            height: 24px;
+            width: 24px;
+            margin-left: 5px;
+            margin-bottom: 5px;
+            background: url(res/jlt/sprite.png) no-repeat 0px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <span></span>
+    <div class="threeangle"></div>
+    <div class="jl">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var jlImg = document.querySelectorAll('li');
+        for (var i = 1; i < jlImg.length; i++) {
+            var index = i * 44;
+            jlImg[i].style.backgroundPosition = '0-' + index + 'px';
+            console.log('程序已经执行');
+        }
+    </script>
+</body>
+
+</html>
