@@ -12,6 +12,18 @@
     <link rel="stylesheet" href="css/9.css">
 
     <style>
+        @font-face {
+            font-family: 'vagmr';
+            src: url('fonts/icomoon.eot?jljxkf');
+            src: url('fonts/icomoon.eot?jljxkf#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?jljxkf') format('truetype'),
+                url('fonts/icomoon.woff?jljxkf') format('woff'),
+                url('fonts/icomoon.svg?jljxkf#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
         #new1 {
             font-style: italic;
             font-size: 20px;
@@ -178,6 +190,17 @@
             color: #e50f45;
             margin-bottom: 10px;
         }
+
+        #dh {
+            font-size: 20px;
+            color: #e50f45
+        }
+
+        .tb {
+            position: absolute;
+            top: 0;
+            right: 10px;
+        }
     </style>
 </head>
 
@@ -226,7 +249,10 @@
         </a>
     </del>
     <!-- 表格 -->
-    <table border="1px" cellspacing="0" cellpadding="5px">
+    <table border="1px" cellspacing="0" cellpadding="5px" class="tb">
+        <tr>
+            <th colspan="10" id='dh'>导航</th>
+        </tr>
         <tr>
             <th>第一栏</th>
             <th>第二栏</th>
@@ -298,11 +324,29 @@
             </p>
         </div>
     </div>
-
-
-
-
-
+    <!-- 编写一个搜索栏 -->
+    <div id="seabox">
+        <input type="text" value="搜索" id='search'>
+        <span></span>
+    </div>
+    <!-- 对搜索栏进行操作 -->
+    <script>
+        // <!-- 首先获取搜索栏样式 -->
+        var seaV = document.getElementById('search');
+        // 注册事件，获取焦点事件
+        seaV.onfocus = function () {
+            if (seaV.value === '搜索') {
+                this.value = '';
+                console.log('获得焦点');
+            }
+        }
+        seaV.onblur = function () {
+            if (seaV.value === '') {
+                this.value = '搜索';
+                console.log('失去焦点');
+            }
+        }
+    </script>
 </body>
 
 </html>

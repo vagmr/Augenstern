@@ -1,4 +1,5 @@
 /* 以下是精灵图相关样式 */
+
 .box01 {
     display: inline-block;
     width: 109px;
@@ -48,4 +49,29 @@
     position: absolute;
     top: 647px;
     right: 10px;
+}
+
+/* //下面是搜索栏的制作 */
+#search {
+    display: inline-block;
+    width: 280px;
+    height: 35px;
+    outline: none;
+}
+
+#seabox {
+    position: absolute;
+    top: 95px;
+    left: 9px;
+    width: 330px;
+    border: 1px solid salmon;
+    border-radius: 5px;
+}
+
+#seabox span {
+    font-family: vagmr;
+    font-size: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    padding-left: 10px;
 }
