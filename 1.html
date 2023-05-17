@@ -339,12 +339,14 @@
                 this.value = '';
                 console.log('获得焦点');
             }
+            seaV.style.color = '#333';
         }
         seaV.onblur = function () {
             if (seaV.value === '') {
                 this.value = '搜索';
                 console.log('失去焦点');
             }
+            seaV.style.color = '#999';
         }
     </script>
 </body>

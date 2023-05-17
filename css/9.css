@@ -57,6 +57,7 @@
     width: 280px;
     height: 35px;
     outline: none;
+    color: #999;
 }
 
 #seabox {
@@ -74,4 +75,5 @@
     vertical-align: middle;
     cursor: pointer;
     padding-left: 10px;
+    color: aqua;
 }
