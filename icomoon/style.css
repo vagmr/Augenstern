@@ -1,0 +1,253 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?jljxkf');
+  src:  url('fonts/icomoon.eot?jljxkf#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?jljxkf') format('truetype'),
+    url('fonts/icomoon.woff?jljxkf') format('woff'),
+    url('fonts/icomoon.svg?jljxkf#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-apacheairflow:before {
+  content: "\e900";
+  color: #007a88;
+}
+.icon-apachenetbeanside:before {
+  content: "\e901";
+  color: #1b6ac6;
+}
+.icon-apple:before {
+  content: "\e902";
+  color: #999;
+}
+.icon-applemusic:before {
+  content: "\e903";
+}
+.icon-asana:before {
+  content: "\e904";
+}
+.icon-atlassian:before {
+  content: "\e905";
+  color: #0052cc;
+}
+.icon-atom:before {
+  content: "\e906";
+  color: #66595c;
+}
+.icon-automatic:before {
+  content: "\e907";
+  color: #7d8084;
+}
+.icon-autotask:before {
+  content: "\e908";
+  color: #e51937;
+}
+.icon-aventrix:before {
+  content: "\e909";
+  color: #09d;
+}
+.icon-bandcamp:before {
+  content: "\e90a";
+  color: #408294;
+}
+.icon-bathasu:before {
+  content: "\e90b";
+  color: #00a3e0;
+}
+.icon-beatsbydre:before {
+  content: "\e90c";
+  color: #e01f3d;
+}
+.icon-bigcartel:before {
+  content: "\e90d";
+}
+.icon-bing:before {
+  content: "\e90e";
+  color: #008373;
+}
+.icon-boeing:before {
+  content: "\e90f";
+  color: #1d439c;
+}
+.icon-boost:before {
+  content: "\e910";
+  color: #f69220;
+}
+.icon-buddy:before {
+  content: "\e911";
+  color: #1a86fd;
+}
+.icon-centos:before {
+  content: "\e912";
+  color: #262577;
+}
+.icon-cevo:before {
+  content: "\e913";
+  color: #1eabe2;
+}
+.icon-chase:before {
+  content: "\e914";
+  color: #117aca;
+}
+.icon-civicrm:before {
+  content: "\e915";
+  color: #81c459;
+}
+.icon-codacy:before {
+  content: "\e916";
+}
+.icon-codeigniter:before {
+  content: "\e917";
+  color: #ee4623;
+}
+.icon-codio:before {
+  content: "\e918";
+  color: #4574e0;
+}
+.icon-cplusplus:before {
+  content: "\e919";
+  color: #00599c;
+}
+.icon-dev-dot-to:before {
+  content: "\e91a";
+}
+.icon-diaspora:before {
+  content: "\e91b";
+}
+.icon-dynatrace:before {
+  content: "\e91c";
+  color: #1496ff;
+}
+.icon-expertsexchange:before {
+  content: "\e91d";
+  color: #00aae7;
+}
+.icon-firebase:before {
+  content: "\e91e";
+  color: #ffca28;
+}
+.icon-github1:before {
+  content: "\e91f";
+}
+.icon-gitlab:before {
+  content: "\e920";
+  color: #fca121;
+}
+.icon-googlechrome:before {
+  content: "\e921";
+  color: #4285f4;
+}
+.icon-graphql:before {
+  content: "\e922";
+  color: #e10098;
+}
+.icon-haxe:before {
+  content: "\e923";
+  color: #ea8220;
+}
+.icon-hexo:before {
+  content: "\e924";
+  color: #0e83cd;
+}
+.icon-javascript:before {
+  content: "\e925";
+  color: #f7df1e;
+}
+.icon-joomla:before {
+  content: "\e926";
+  color: #5091cd;
+}
+.icon-kaggle:before {
+  content: "\e927";
+  color: #20beff;
+}
+.icon-kodi:before {
+  content: "\e928";
+  color: #17b2e7;
+}
+.icon-monzo:before {
+  content: "\e929";
+}
+.icon-pyup:before {
+  content: "\e92a";
+  color: #9f55ff;
+}
+.icon-sitepoint:before {
+  content: "\e92b";
+  color: #258aaf;
+}
+.icon-socket-dot-io:before {
+  content: "\e92c";
+}
+.icon-sourcegraph:before {
+  content: "\e92d";
+  color: #00b4f2;
+}
+.icon-storify:before {
+  content: "\e92e";
+  color: #3a98d9;
+}
+.icon-strava:before {
+  content: "\e92f";
+  color: #fc4c02;
+}
+.icon-unity:before {
+  content: "\e930";
+}
+.icon-v:before {
+  content: "\e931";
+  color: #5d87bf;
+}
+.icon-vagrant:before {
+  content: "\e932";
+  color: #1563ff;
+}
+.icon-visualstudio:before {
+  content: "\e933";
+  color: #5c2d91;
+}
+.icon-visualstudiocode:before {
+  content: "\e934";
+  color: #007acc;
+}
+.icon-windows:before {
+  content: "\e935";
+  color: #0078d6;
+}
+.icon-xamarin:before {
+  content: "\e936";
+  color: #4393d4;
+}
+.icon-xbox:before {
+  content: "\e937";
+  color: #107c10;
+}
+.icon-home2:before {
+  content: "\e938";
+}
+.icon-location2:before {
+  content: "\e948";
+}
+.icon-floppy-disk:before {
+  content: "\e962";
+}
+.icon-github:before {
+  content: "\eab0";
+}
