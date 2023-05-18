@@ -117,6 +117,16 @@
             background: url(res/check/right.png) no-repeat left center;
             padding-left: 20px;
         }
+
+        .wrong {
+            color: red;
+            background: url(res/check/wrong.png) no-repeat left center;
+        }
+
+        .right {
+            color: green;
+            background-image: url(res/check/right.png);
+        }
     </style>
 </head>
 
@@ -164,7 +174,22 @@
         <input type="password" class="ipt">
         <p class="message">请输入6~16位密码</p>
     </div>
-
+    <!-- 修改密码验证事件 -->
+    <script>
+        var ck1 = document.querySelector('.ipt');
+        var message = document.querySelector('.message')
+        ck1.onblur = function () {
+            if (ck1.value.length < 6 || ck1.value.length > 16) {
+                console.log('执行');
+                message.className = 'message wrong';
+                message.textContent = '输入有误，请重新输入';
+            }
+            else {
+                message.className = 'message right';
+                message.textContent = '输入正确';
+            }
+        }
+    </script>
 </body>
 
 </html>

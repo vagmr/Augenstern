@@ -24,6 +24,10 @@
             font-display: block;
         }
 
+        a {
+            text-decoration: none;
+        }
+
         #new1 {
             font-style: italic;
             font-size: 20px;
@@ -196,10 +200,26 @@
             color: #e50f45
         }
 
+        .ddiv {
+            position: relative;
+            top: -712px;
+            left: 1195px;
+            width: 146px;
+            background: linear-gradient(to right, rgb(190, 117, 147), #0cbddc);
+        }
+
         .tb {
             position: absolute;
-            top: 0;
-            right: 10px;
+            top: 23px;
+            right: -48px;
+            display: none;
+        }
+
+        .dropdown {
+            cursor: pointer;
+            color: rgb(50, 224, 20);
+            background-color: #1f1f1f;
+
         }
     </style>
 </head>
@@ -248,32 +268,54 @@
             <p id="new1">一段新的旅程</p>
         </a>
     </del>
-    <!-- 表格 -->
-    <table border="1px" cellspacing="0" cellpadding="5px" class="tb">
-        <tr>
-            <th colspan="10" id='dh'>导航</th>
-        </tr>
-        <tr>
-            <th>第一栏</th>
-            <th>第二栏</th>
-            <th>第三栏</th>
-            <th>第四栏</th>
-            <th colspan="6">其他</th>
-        </tr>
-        <tr>
+    <!-- 对表格的样式进行修改，设计一个下拉菜单 -->
+    <div class="ddiv">
+        <button class="dropdown" type="button" data-toggle="dropdown">
+            导航开启
+        </button>
+        <!-- 表格 -->
+        <table border="1px" cellspacing="0" cellpadding="5px" class="tb">
+            <tr>
+                <th colspan="10" id='dh'>导航</th>
+            </tr>
+            <tr>
+                <th>第一栏</th>
+                <th>第二栏</th>
+                <th>第三栏</th>
+                <th>第四栏</th>
+                <th colspan="6">其他</th>
+            </tr>
+            <tr>
 
-            <td><a href="3.html">项目1</a></td>
-            <td><a href="4.html">项目2</a></td>
-            <td><a href="5.html">项目3</a></td>
-            <td><a href="6.html">项目4</a></td>
-            <td><a href="7.html">项目5</a></td>
-            <td><a href="8.html">项目6</a></td>
-            <td><a href="9.html">项目7</a></td>
-            <td><a href="10.html">项目8</a></td>
-            <td><a href="index.html">项目8</a></td>
+                <td><a href="3.html">项目1</a></td>
+                <td><a href="4.html">项目2</a></td>
+                <td><a href="5.html">项目3</a></td>
+                <td><a href="6.html">项目4</a></td>
+                <td><a href="7.html">项目5</a></td>
+                <td><a href="8.html">项目6</a></td>
+                <td><a href="9.html">项目7</a></td>
+                <td><a href="10.html">项目8</a></td>
+                <td><a href="index.html">项目8</a></td>
 
-        </tr>
-    </table>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var dbtn = document.querySelector('.dropdown');
+        var tb = document.querySelector('.tb');
+        var flag = 0;
+        dbtn.onclick = function () {
+            if (flag == 0) {
+                tb.style.display = 'block';
+                flag = 1;
+            }
+            else {
+                tb.style.display = 'none';
+                flag = 0;
+            }
+        }
+    </script>
+
     <img class="img" src="res/logo3.png" alt="logo" title="logo">
     <p align="center" class="dw">
         <a href="https://github.com/vagmr">
@@ -350,5 +392,6 @@
         }
     </script>
 </body>
+
 
 </html>
