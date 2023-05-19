@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search-box {
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        #search-input {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-results {
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: left;
+        }
+
+        .search-results h3 {
+            margin-top: 20px;
+        }
+
+        .search-results img {
+            max-width: 100%;
+        }
+    </style>
+    <script>
+        const baseURL = "https://www.googleapis.com/customsearch/v1";
+        const cx = "60aaae9852c4940a2";//搜素引擎id
+        const apiKey = "AIzaSyCihN146cKW4M-gw9M5uiTyrnM2D_MyQ04";//api key
+
+        const searchForm = document.querySelector('form');
+        const searchInput = document.querySelector('#search-input');
+        const searchResults = document.querySelector('.search-results');
+
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const query = searchInput.value;
+            if (!query) {
+                return;
+            }
+
+            const url = `${baseURL}?key=${apiKey}&cx=${cx}&q=${query}&num=10&searchType=image`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    searchResults.innerHTML = "";
+                    if (!data.items) {
+                        searchResults.innerHTML = "<p>No results found.</p>";
+                        return;
+                    }
+                    data.items.forEach(item => {
+                        const title = item.title;
+                        const link = item.link;
+                        const thumbnail = item.image.thumbnailLink;
+                        const html = `
+          <div>
+            <h3><a href="${link}" target="_blank">${title}</a></h3>
+            <a href="${link}" target="_blank"><img src="${thumbnail}"></a>
+          </div>
+        `;
+                        searchResults.insertAdjacentHTML('beforeend', html);
+                    });
+                })
+                .catch(error => {
+                    searchResults.innerHTML = "<p>Something went wrong.</p>";
+                    console.error(error);
+                });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="search-box">
+        <form>
+            <input type="text" name="q" id="search-input" placeholder="Search Google...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="search-results"></div>
+
+</body>
+
+</html>

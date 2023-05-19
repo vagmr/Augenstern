@@ -11,7 +11,8 @@
     height: 100%;
 }
 
-.two {
+.one::before {
+    content: '';
     position: absolute;
     left: 50%;
     margin-left: -290px;
@@ -24,6 +25,6 @@
 
 
 
-.one:hover .two {
+.one:hover::before {
     display: block;
 }

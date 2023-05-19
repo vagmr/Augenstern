@@ -110,15 +110,19 @@
             border-radius: inherit;
             background: #fff;
             /* 渐变色需要设置为透明 */
-            transition: width 1s ease-in-out;
+            transition: all 2s ease;
             background: linear-gradient(to right, rgb(13, 177, 218), #edfe03);
             /* 进度条的渐变色 */
+        }
+
+        .skill-bar:hover {
+            box-shadow: 0 2px 3px 3px;
+            width: 20px;
         }
 
         /* 使用不同的类名分别设置每种语言的样式 */
         .cpp {
             width: 40%;
-            background-color: rgb(20, 221, 118);
         }
 
         .java {
