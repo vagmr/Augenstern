@@ -1,0 +1,29 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.shortcut {
+    height: 30px;
+    background-color: #f1f1f1;
+    color: #666666;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.shortcut ul li {
+    float: left;
+}
+
+/* 把红色样式设置为公共类名 */
+.style_red {
+    color: #c81623;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
