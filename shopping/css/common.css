@@ -119,6 +119,7 @@
     height: 36px;
     background-color: #ffffff;
     line-height: 36px;
+    border: 2px solid #dfdfdf;
 }
 
 .count {
@@ -168,4 +169,86 @@
     /* float: left; */
     padding-left: 10px;
     padding-right: 10px;
+}
+
+/* 加下来是nav导航模块的制作 */
+.nav {
+    height: 48px;
+    margin-top: 26px;
+    border-bottom: 3px solid #b1191a;
+}
+
+.nl {
+    float: left;
+}
+
+.dd {
+    height: 452px;
+    background-color: #cb1623;
+}
+
+.dd ul {
+    margin-left: 2px;
+}
+
+.dd ul li {
+    height: 30px;
+    margin-left: 2px;
+    padding-left: 10px;
+}
+
+.dd ul li a {
+    /* width: 100%; */
+    font-size: 14px;
+    color: #fff;
+    line-height: 30px;
+    /* margin-left: 10px; */
+}
+
+.dd ul li:hover {
+    background-color: #f7f7f7;
+}
+
+/* 
+.dd ul li a:hover {
+    color: #d56f73;
+
+} */
+/* 写法应该为下面的 */
+.dd ul li:hover a {
+    color: #d56f73;
+}
+
+/* 字体图标制作箭头的标记 */
+.dd ul li::after {
+    content: '\f105';
+    float: right;
+    margin-right: 10px;
+    font-family: 'va';
+    color: #f4eaeb;
+    font-size: 20px;
+    vertical-align: bottom;
+}
+
+.nl button {
+    height: 45px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #b1191a;
+    width: 210px;
+}
+
+
+.nr a {
+    float: left;
+    line-height: 45px;
+    margin-left: 40px;
+    font-size: 16px;
+    color: #333333;
+}
+
+/* 底部模块制作 */
+.footer {
+    height: 418px;
+    background-color: #f5f5f5;
 }
