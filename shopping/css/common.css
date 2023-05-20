@@ -1,3 +1,16 @@
+/* 声明字体图标 */
+@font-face {
+    font-family: 'va';
+    src: url('../fonts/icomoon.eot?jljxkf');
+    src: url('../fonts/icomoon.eot?jljxkf#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?jljxkf') format('truetype'),
+        url('../fonts/icomoon.woff?jljxkf') format('woff'),
+        url('../fonts/icomoon.svg?jljxkf#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
 .w {
     width: 1200px;
     margin: 0 auto;
@@ -22,8 +35,137 @@
 
 .fl {
     float: left;
+    /* margin-left: 360px; */
 }
 
 .fr {
     float: right;
+    /* margin-right: 360px; */
+}
+
+.shortcut .fr ul li:nth-child(even) {
+    width: 2px;
+    background-color: #666666;
+    height: 12px;
+    margin: 9px 15px 0;
+
+}
+
+/* 设置字体图标伪元素 */
+.arrow-icon::after {
+    content: '\f107';
+    font-family: va;
+    font-size: 14px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* 下面是头部部分的制作 */
+.header {
+    position: relative;
+    height: 105px;
+    background-color: pink;
+}
+
+.logo {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 171px;
+    height: 61px;
+    font-size: 0;
+
+}
+
+.logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+    background-image: url(../image/logo.jpg);
+}
+
+/* 下面是头部中的搜素框 */
+.search {
+    position: absolute;
+    top: 25px;
+    left: 340px;
+    width: 541px;
+    height: 34px;
+    border: 2px solid #b1191a;
+}
+
+.search input {
+    /* 因为两个都属于行内块元素中间存在缝隙，因此要加浮动 */
+    float: left;
+    /* outline: none; */
+    height: 30px;
+    width: 456px;
+    padding-left: 10px;
+}
+
+.search button {
+    float: left;
+    width: 81.5px;
+    height: 31px;
+    background-color: #b1191a;
+}
+
+/* 下面是购物车的样式 */
+.shopcart {
+    position: absolute;
+    right: 62px;
+    top: 26px;
+    width: 140px;
+    height: 36px;
+    background-color: #ffffff;
+    line-height: 36px;
+}
+
+.count {
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    width: 16px;
+    height: 14px;
+    background: url(../image/8.png);
+}
+
+.shopcart i {
+    font-size: 12px;
+    color: #666666;
+}
+
+.cart-icon::before {
+    display: inline-block;
+    content: '';
+    background: url(../image/购物车拷贝2.png) no-repeat;
+    width: 18px;
+    height: 13px;
+    margin-left: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.gt-icon::after {
+    content: '\f105';
+    font-family: va;
+    font-size: 16px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+/* 下面是热词模块制作 */
+.hotwords {
+    position: absolute;
+    top: 65px;
+    left: 340px;
+    width: 538px;
+    height: 15px;
+}
+
+.hotwords a {
+    /* 元素为a不需要加浮动 */
+    /* float: left; */
+    padding-left: 10px;
+    padding-right: 10px;
 }
