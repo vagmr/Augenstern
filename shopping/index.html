@@ -97,6 +97,22 @@
                     </ul>
                 </div>
             </div>
+            <script>
+                var btn = document.querySelector('.b');
+                var dd = document.querySelector('.dd');
+                var flag = 0;
+                btn.onclick = function () {
+                    if (flag == 0) {
+                        console.log('执行');
+                        dd.style.display = 'none';
+                        flag = 1;
+                    }
+                    else {
+                        dd.style.display = 'block';
+                        flag = 0;
+                    }
+                }
+            </script>
             <div class="nr">
                 <a href="">服装城</a>
                 <a href="">美妆馆</a>
