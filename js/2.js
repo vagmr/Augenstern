@@ -219,6 +219,11 @@ function guess() {
     var count = 0;
     while (count <= 4) {
         var num = prompt('猜0-50之间的一个数字')
+        if (num == null) {
+            alert('退出程序');
+            break;
+        }
+        console.log(num);
         if (num > ranNum) {
             alert('你猜大了');
             count++;
