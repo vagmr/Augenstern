@@ -183,8 +183,10 @@
 }
 
 .dd {
+    position: relative;
     height: 452px;
     background-color: #cb1623;
+    z-index: 1;
 }
 
 .dd ul {
@@ -249,6 +251,108 @@
 
 /* 底部模块制作 */
 .footer {
+    position: relative;
     height: 418px;
     background-color: #f5f5f5;
+}
+
+.sev_mod {
+    height: 110px;
+    background: linear-gradient(to right, rgb(236, 216, 167), #ec0b61);
+    border-bottom: 1px solid #666666;
+}
+
+.sev_mod ul li h5 {
+    float: left;
+    height: 50px;
+    width: 50px;
+}
+
+.sev_mod ul li {
+    float: left;
+    margin: 30px 40px 30px 30px;
+    width: 165px;
+    /* vertical-align: middle; */
+    height: 40px;
+}
+
+.sev_mod ul li h3 {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.sev_mod ul li span {
+    font-size: 12px;
+    color: #666666;
+}
+
+.li_last {
+    margin-right: 0;
+}
+
+/* 下面是footer里关于模块的制作 */
+.about {
+    height: 188px;
+    border-bottom: 1px solid #5a5a5a;
+}
+
+.about dl {
+    float: left;
+    padding-left: 50px;
+    width: 200px;
+}
+
+.about dl dt {
+    font-size: 16px;
+    color: #333333;
+    line-height: 21px;
+    margin-bottom: 15px;
+}
+
+.about dl dd {
+    font-size: 12px;
+    color: #666666;
+    line-height: 20px;
+}
+
+.about dl img {
+    width: 80px;
+    height: 80px;
+}
+
+.about dl:last-child {
+    width: 130px;
+    text-align: center;
+}
+
+/* 下面是copyright的制作 */
+
+.copyright ul {
+    margin-left: 112px;
+}
+
+.copyright ul li {
+    float: left;
+    margin-top: 20px;
+}
+
+.copyright li:hover {
+    color: #d56f73;
+    cursor: pointer;
+}
+
+.copyright ul li:nth-child(even) {
+    width: 2px;
+    background-color: #666666;
+    height: 12px;
+    margin: 23px 15px 0 15px;
+    /* margin: 9px 15px 0; */
+}
+
+.copyright .txt {
+    position: absolute;
+    bottom: 0;
+    left: 600px;
+    text-align: center;
 }
