@@ -1,0 +1,39 @@
+/* main模块制作 */
+.main {
+    width: 978px;
+    height: 449px;
+    background-color: pink;
+    margin-left: 380px;
+    margin-bottom: 13px;
+    overflow: hidden;
+}
+
+.ml {
+    position: relative;
+    float: left;
+    width: 720px;
+    height: 439px;
+    background: url(../image/s1.png) no-repeat;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.mr1 {
+    float: right;
+    width: 248px;
+    height: 449px;
+    background-color: rgb(6, 6, 6);
+}
+
+/* 设置定位小箭头进行轮播图切换 */
+.arrow {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    font-size: 40px;
+    color: rgb(255, 2, 2);
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* main模块制作 */
