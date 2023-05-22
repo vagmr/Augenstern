@@ -25,6 +25,16 @@
     background-color: rgb(6, 6, 6);
 }
 
+.news {
+    height: 162px;
+    background-color: aquamarine;
+}
+
+.liveservies {
+    height: 140px;
+    background-color: #f30e0e;
+}
+
 /* 设置定位小箭头进行轮播图切换 */
 .arrow {
     position: absolute;
