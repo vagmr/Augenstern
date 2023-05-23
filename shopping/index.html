@@ -145,10 +145,69 @@
             }
         </script>
         <div class="mr1">
-            <div class="news"></div>
-            <div class="liveservies"></div>
+            <div class="news">
+                <div class="newsup">
+                    <h3>品优购快报</h3>
+                    <h4>更多</h4>
+                </div>
+                <div class="newdown">
+                    <a href=""><span>【特惠】</span>惊喜秒杀活动.....</a>
+                    <a href=""><span>【公告】</span>vague特价筹宾....</a>
+                    <a href=""><span>【特惠】</span>新的百货抢先采购..</a>
+                    <a href=""><span>【公告】</span>新一轮金融危机来临</a>
+                    <a href=""><span>【特惠】</span>为了防止世界被破坏</a>
+                </div>
+            </div>
+            <div class="liveservies">
+                <ul>
+                    <li>
+                        <i></i>
+                        <p>话费</p>
+                    </li>
+                    <li><i></i>
+                        <p>机票</p>
+                    </li>
+                    <li><i></i>
+                        <p>电影票</p>
+                    </li>
+                    <li><i></i>
+                        <p>游戏</p>
+                    </li>
+                    <li><i></i>
+                        <p>彩票</p>
+                    </li>
+                    <li><i></i>
+                        <p>电影</p>
+                    </li>
+                    <li><i></i>
+                        <p>众筹</p>
+                    </li>
+                    <li><i></i>
+                        <p>火车票</p>
+                    </li>
+                    <li><i></i>
+                        <p>自筹</p>
+                    </li>
+                    <li><i></i>
+                        <p>白条</p>
+                    </li>
+                    <li><i></i>
+                        <p>理财</p>
+                    </li>
+                    <li><i></i>
+                        <p>火车</p>
+                    </li>
+                </ul>
+            </div>
+            <script>
+                var lis = document.querySelector('.liveservies').querySelectorAll('i');
+                for (var i = 0; i < lis.length; i++) {
+                    var index = i * 44;
+                    lis[i].style.backgroundPosition = '0px -' + index + 'px';
+                }
+            </script>
             <div class="bargin">
-                <img src="" alt="">
+                <img src="upload/图层178.png" alt="">
             </div>
         </div>
     </div>

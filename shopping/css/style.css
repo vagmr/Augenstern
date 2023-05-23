@@ -1,3 +1,16 @@
+/* 声明字体图标 */
+@font-face {
+    font-family: 'va';
+    src: url('../fonts/icomoon.eot?jljxkf');
+    src: url('../fonts/icomoon.eot?jljxkf#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?jljxkf') format('truetype'),
+        url('../fonts/icomoon.woff?jljxkf') format('woff'),
+        url('../fonts/icomoon.svg?jljxkf#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
 /* main模块制作 */
 .main {
     width: 978px;
@@ -22,18 +35,82 @@
     float: right;
     width: 248px;
     height: 449px;
-    background-color: rgb(6, 6, 6);
+    /* background-color: rgb(6, 6, 6); */
 }
 
 .news {
-    height: 162px;
-    background-color: aquamarine;
+    height: 165px;
+    /* background-color: aquamarine; */
+}
+
+.newsup {
+    position: relative;
+    height: 30px;
+}
+
+.newsup h3 {
+    float: left;
+    font-size: 14px;
+    color: #333333;
+    font-weight: 400;
+}
+
+.newsup h4 {
+    float: right;
+    margin-right: 20px;
+    margin-top: 7px;
+}
+
+.newsup h4::after {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    content: '\f105';
+    font-family: 'va';
+    font-size: 18px;
+    /* vertical-align: middle; */
+}
+
+.newdown {
+    border: 1px solid #666666;
+}
+
+.newdown a {
+    display: block;
+    margin-top: 9px;
+    padding-left: 10px;
+    color: #666666;
+}
+
+.newdown span {
+    color: #333333;
 }
 
 .liveservies {
-    height: 140px;
-    background-color: #f30e0e;
+    height: 210px;
+    /* background-color: #f30e0e; */
 }
+
+.liveservies ul {
+    margin-top: 5px;
+}
+
+.liveservies li {
+    float: left;
+    width: 62px;
+    height: 70px;
+    border: 1px solid rgb(17, 17, 17);
+    text-align: center;
+}
+
+.liveservies li i {
+    display: inline-block;
+    margin-top: 14px;
+    width: 23px;
+    height: 26px;
+    background: url(../image/sprite.png) no-repeat 0px 0px;
+}
+
 
 /* 设置定位小箭头进行轮播图切换 */
 .arrow {
@@ -45,5 +122,7 @@
     z-index: 2;
     cursor: pointer;
 }
+
+
 
 /* main模块制作 */
