@@ -15,7 +15,7 @@
 ## 相关链接
 
 - [项目主页](https://github.com/vagmr/Augenstern/)
-- [作者个人网站](https://github.com/vagmr)
+- [作者个人网站](https://about.vagmrgpt.top/)
 
 ## 代码实例
 
