@@ -130,7 +130,7 @@
 .recom {
 
     height: 162px;
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 .recom .hd {
@@ -157,18 +157,24 @@
     background-color: #ebebeb;
 }
 
-.bd img {
-    float: left;
+.bd ul li img {
     width: 248px;
     height: 163px;
 }
 
-.bd li::after {
-    content: '';
+.bd ul li {
+    float: left;
+    position: relative;
+}
+
+.bd li:nth-child(-n+3)::after {
+    content: ' ';
+    position: absolute;
+    right: 0;
+    top: 10px;
     width: 1px;
     color: #dddddd;
     height: 144px;
-    margin-top: 10px;
 }
 
 /* 推荐模块制作 */
