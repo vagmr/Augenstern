@@ -126,3 +126,49 @@
 
 
 /* main模块制作 */
+/* 推荐模块制作 */
+.recom {
+
+    height: 162px;
+    background-color: pink;
+}
+
+.recom .hd {
+    float: left;
+    height: 162px;
+    text-align: center;
+    width: 206px;
+    background-color: #5c5251;
+}
+
+.recom .hd img {
+    margin-top: 30px;
+}
+
+.hd h3 {
+    font-style: 18px;
+    color: #ffffff;
+}
+
+.recom .bd {
+    float: left;
+    height: 162px;
+    width: 994px;
+    background-color: #ebebeb;
+}
+
+.bd img {
+    float: left;
+    width: 248px;
+    height: 163px;
+}
+
+.bd li::after {
+    content: '';
+    width: 1px;
+    color: #dddddd;
+    height: 144px;
+    margin-top: 10px;
+}
+
+/* 推荐模块制作 */
