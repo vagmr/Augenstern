@@ -242,4 +242,37 @@
     color: #df3033;
 }
 
-/* 猜你喜欢模块制作 */
+/* 家用电器模块制作 */
+.box_hd {
+    height: 32px;
+    border-bottom: 2px solid #c81623;
+
+}
+
+.box_hd h2 {
+    float: left;
+}
+
+.hd_r {
+    float: right;
+    line-height: 32px;
+}
+
+.hd_r ul li {
+    float: left;
+}
+
+.hd_r ul li:nth-child(even)::after {
+    content: ' ';
+    display: block;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 8px;
+    background-color: #666666;
+    width: 1px;
+    height: 16px;
+}
+
+.hd_r ul li:first-child {
+    color: #c81623;
+}
