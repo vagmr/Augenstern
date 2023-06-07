@@ -243,10 +243,15 @@
 }
 
 /* 家用电器模块制作 */
+.fx {
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
 .box_hd {
     height: 32px;
     border-bottom: 2px solid #c81623;
-
 }
 
 .box_hd h2 {
@@ -275,4 +280,69 @@
 
 .hd_r ul li:first-child {
     color: #c81623;
+}
+
+.tab_list_item>div {
+    float: left;
+    height: 361px;
+    text-align: center;
+}
+
+.box_bd {
+    margin-bottom: 30px;
+}
+
+.col_210 {
+    width: 210px;
+    background-color: #f9f9f9;
+}
+
+.col_210 ul li {
+    float: left;
+    width: 85px;
+    height: 34px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+}
+
+.col_210 img {
+
+    margin-top: 32px;
+}
+
+.col_210 ul {
+    padding-left: 12px;
+}
+
+.col_329 {
+    width: 329px;
+    background-color: #aed6d8;
+}
+
+.col_329 img {
+    margin-top: 42px;
+}
+
+.col_221 {
+    width: 221px;
+    border-right: 1px solid #ccc;
+}
+
+.col_221 img:last-child {
+    margin-top: 20px;
+}
+
+.col_219 {
+    width: 219px;
+}
+
+.col_219 img:last-child {
+    margin-top: 10px;
+}
+
+.bb {
+    display: block;
+    border-bottom: 1px solid #ccc;
 }
