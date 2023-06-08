@@ -23,4 +23,5 @@ p {
 
 div+div {
     border-top: 3px solid #ccc;
+    color: #f5f6fa;
 }
