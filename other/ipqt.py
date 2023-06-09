@@ -176,12 +176,14 @@ class IPInfo(QWidget):
 
             # 查询 IP 地址信息
             url = f'https://ipapi.co/{ip_address}/json/'
-            response = requests.get(url)
+            response = requests.get(url, timeout=5)
             data = response.json()
 
             # 显示 IP 地址信息到文本编辑框
             country = data['country_name']
             self.ip_info_text.setText(f'IP地址：{ip_address}，所在国家：【{country}】\n其它信息：{data}')
+        except requests.exceptions.Timeout:
+            QMessageBox.warning(self, '查询失败', '请求超时，请检查网络连接。')
         except:
             # 显示查询失败提示信息
             QMessageBox.warning(self, '查询失败', '查询 IP 地址信息失败，请检查网络连接。')
@@ -239,13 +241,11 @@ class IPInfo(QWidget):
     # 弹出对话框显示作者信息
         message_box = QMessageBox()
         message_box.setWindowTitle('关于')
-        message_box.setText('本程序由vagmr开发。' +'\n' + 'version:1.0 '+'\n'+'反正也不会继续更新，没意义')
+        message_box.setText('本程序由vagmr开发。' +'\n' + 'version:1.1 '+'\n'+'增加了对请求超时的处理机制，修复了程序卡死的bug'
+                          + '\n '+ '将是最后一次更新了 '  )
         message_box.setStyleSheet(style_sheet)
         message_box.addButton(QPushButton('确定'), QMessageBox.AcceptRole)
         message_box.exec_()
-
-        # 弹出对话框显示作者信息
-        # QMessageBox.about(self, '关于', '本程序由vagmr开发。')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
