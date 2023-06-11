@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+
 }
 
 .box1 {
@@ -114,4 +115,46 @@
 
 .i1:hover {
     transform: scale(1.5);
+}
+
+.footer {
+    position: relative;
+    bottom: 30px;
+    left: 0;
+    height: 150px;
+    background-color: pink;
+    overflow: hidden;
+    text-align: center;
+}
+
+.footer ul {
+    position: absolute;
+    float: left;
+    margin: 30px 0;
+    height: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* background-color: aqua; */
+    padding-top: 30px;
+}
+
+.footer ul li {
+    list-style: none;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 1px solid red;
+    border-radius: 50%;
+    line-height: 50px;
+    margin-left: 30px;
+    transition: all 0.4s;
+}
+
+li:hover {
+    transform: scale(1.5);
+
+}
+
+.fc {
+    position: relative;
 }
