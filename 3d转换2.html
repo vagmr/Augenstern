@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3d转换2</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         .box {
             perspective: 500px;
             position: relative;
@@ -44,15 +49,105 @@
 
             transform: rotateY(180deg);
         }
+
+        ul {
+            margin-left: 10px;
+            position: absolute;
+            top: 10px;
+            left: 0;
+        }
+
+        ul li {
+            list-style: none;
+            width: 120px;
+            height: 80px;
+            perspective: 500px;
+            float: left;
+            margin-left: 5px;
+        }
+
+        .boxX {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 100px;
+            transition: all 2s;
+            transform-style: preserve-3d;
+        }
+
+        .boxX:hover {
+            transform: rotateX(90deg);
+        }
+
+        .frontx,
+        .backx {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .frontx {
+            background-color: rosybrown;
+            z-index: 1;
+            /* //解决翻转失败的问题 */
+            transform: translateZ(40px);
+        }
+
+        .backx {
+            background-color: aqua;
+            /* 先移动后位移 */
+            transform: translateY(40px) rotateX(-90deg);
+
+        }
     </style>
 </head>
 
 <body>
     <div class="box">
 
-        <div class="front dw">我是vagmr</div>
-        <div class="back dw">欢迎来到我的页面</div>
+        <div class="front ">我是vagmr</div>
+        <div class="back ">欢迎来到我的页面</div>
     </div>
+    <ul>
+        <li>
+            <div class="boxX">
+                <div class="frontx">主页</div>
+                <div class="backx"><ion-icon name="home-outline"></ion-icon></div>
+            </div>
+        </li>
+        <li>
+            <div class="boxX">
+                <div class="frontx">关于</div>
+                <div class="backx"><ion-icon name="menu-outline"></ion-icon></div>
+            </div>
+        </li>
+        <li>
+            <div class="boxX">
+                <div class="frontx">导航</div>
+                <div class="backx"><ion-icon name="logo-foursquare"></ion-icon></div>
+            </div>
+        </li>
+        <li>
+            <div class="boxX">
+                <div class="frontx">返回</div>
+                <div class="backx"><ion-icon name="arrow-back-outline"></ion-icon></div>
+            </div>
+        </li>
+        <li>
+            <div class="boxX">
+                <div class="frontx">其他</div>
+                <div class="backx"><ion-icon name="flame-outline"></ion-icon></div>
+            </div>
+        </li>
+    </ul>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>
