@@ -11,10 +11,43 @@
         }
 
         .bear {
+            position: absolute;
+            z-index: 1;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 200px;
             height: 100px;
             background: url(res/移动端/bear.png) no-repeat;
-            animation: dh 1s steps(8) infinite;
+            animation: dh 0.8s steps(8) infinite, move 2s linear forwards;
+        }
+
+        .mountbg {
+            position:
+                absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 570px;
+            width: 100%;
+            background-color: white;
+            background: url(res/移动端/bg2.png) no-repeat;
+        }
+
+        .mount {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 336px;
+            width: 1920px;
+            background: url(res/移动端/bg1.png) no-repeat;
+            animation: mount 6s linear infinite;
+        }
+
+        .ot {
+            background-color: white;
+
         }
 
         @keyframes dh {
@@ -26,11 +59,42 @@
                 background-position: -1600px 0;
             }
         }
+
+        @keyframes move {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: 50%;
+            }
+        }
+
+        @keyframes mount {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: -2100px 0;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="bear"></div>
+    <div class="mountbg">
+        <div class="mount"></div>
+    </div>
+    <div class="ot">
+        <span>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+        </span>
+        <span>这是一段话</span>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
