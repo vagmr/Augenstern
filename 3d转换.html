@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d转换</title>
+    <style>
+        body {
+            perspective: 500px;
+        }
+
+        .tt {
+            margin: 300px auto;
+        }
+
+        .test {
+            width: 500px;
+            height: 100px;
+            background: url(res/1.webp) no-repeat;
+            transition: all 2s;
+            margin: 0px auto;
+        }
+
+        .test:hover {
+            transform: rotateX(360deg);
+        }
+
+        .t1 {
+            width: 500px;
+            height: 100px;
+            background: url(res/1.jpg) no-repeat;
+            transition: all 2s;
+            margin: 10px auto
+        }
+
+        .t1:hover {
+            transform: rotateY(360deg);
+        }
+
+        .boxn {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 40px auto;
+            /* perspective: 400px; */
+            transform-style: preserve-3d;
+            transition: all 2s;
+        }
+
+        .boxn:hover {
+            transform: rotateY(45deg);
+        }
+
+        .boxn div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+        }
+
+        .boxn div:first-child {
+            transform: rotateX(-10deg);
+        }
+
+        .boxn div:last-child {
+            background-color: violet;
+            transform: rotateX(60deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tt">
+        <div class="test">
+
+        </div>
+        <div class="t1"></div>
+    </div>
+    <div class="boxn">
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

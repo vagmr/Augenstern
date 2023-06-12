@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d转换2</title>
+    <style>
+        .box {
+            perspective: 500px;
+            position: relative;
+            margin: 200px auto;
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            transition: all 2s;
+            transform-style: preserve-3d;
+        }
+
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .front {
+            background-color: rosybrown;
+            /* //解决翻转失败的问题 */
+            transform: translateZ(1px);
+            z-index: 1;
+        }
+
+        .back {
+            background-color: aqua;
+
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <div class="front dw">我是vagmr</div>
+        <div class="back dw">欢迎来到我的页面</div>
+    </div>
+</body>
+
+</html>
