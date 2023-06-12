@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小熊动画</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .bear {
+            width: 200px;
+            height: 100px;
+            background: url(res/移动端/bear.png) no-repeat;
+            animation: dh 1s steps(8) infinite;
+        }
+
+        @keyframes dh {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: -1600px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bear"></div>
+</body>
+
+</html>
