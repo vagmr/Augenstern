@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热点图</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+
+        .map {
+            position: relative;
+            width: 747px;
+            height: 617px;
+            background: url(res/移动端/map.png) no-repeat;
+            margin: 0 auto;
+        }
+
+        .city {
+            position: absolute;
+            top: 228px;
+            left: 545px;
+            color: white;
+        }
+
+        .tb {
+            top: 500px;
+            left: 650px;
+        }
+
+        .gz {
+            top: 543px;
+            left: 531px;
+        }
+
+        .point {
+            width: 8px;
+            height: 8px;
+            background-color: #09f;
+
+            border-radius: 50%;
+        }
+
+        .city div[class^="ripple"] {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 13px #09f;
+            animation: ripple 1.5s linear infinite;
+        }
+
+        .map .city .ripple2 {
+            animation-delay: 0.4s;
+        }
+
+        .map .city .ripple3 {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes ripple {
+            0% {}
+
+            70% {
+                width: 30px;
+                height: 30px;
+                opacity: 1;
+                border-radius: 30%;
+            }
+
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="point"></div>
+            <div class="ripple1"></div>
+            <div class="ripple2"></div>
+            <div class="ripple3"></div>
+        </div>
+        <div class="city tb">
+            <div class="point"></div>
+            <div class="ripple1"></div>
+            <div class="ripple2"></div>
+            <div class="ripple3"></div>
+        </div>
+        <div class="city gz">
+            <div class="point"></div>
+            <div class="ripple1"></div>
+            <div class="ripple2"></div>
+            <div class="ripple3"></div>
+        </div>
+    </div>
+</body>
+
+</html>

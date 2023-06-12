@@ -77,3 +77,29 @@
     padding-left: 10px;
     color: aqua;
 }
+
+/* 实现打字机效果 */
+.wel {
+    font-size: 30px;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 40px;
+    animation: typewritter 3s steps(9) forwards;
+    /* 添加相对定位 */
+    position: relative;
+    top: -69%;
+    left: 48%;
+    transform: translateX(-50%);
+}
+
+
+@keyframes typewritter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 270px;
+    }
+}

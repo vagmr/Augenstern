@@ -155,6 +155,71 @@ li:hover {
 
 }
 
-.fc {
-    position: relative;
+/* 风车制作 */
+.windmill {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
 }
+
+.dh {
+    animation: cycle 3s linear infinite;
+
+}
+
+.red {
+    width: 0px;
+    height: 0px;
+    border: 50px solid transparent;
+    border-bottom-color: red;
+    transform: rotate(-51deg);
+}
+
+.green {
+    width: 0px;
+    height: 0px;
+    border: 50px solid transparent;
+    border-left-color: green;
+    transform: translateY(-100px) rotate(33deg);
+}
+
+.yellow {
+    width: 0px;
+    height: 0px;
+    border: 50px solid transparent;
+    border-top-color: yellow;
+    transform: translateY(-200px) rotate(92deg);
+}
+
+.acqu {
+    width: 0px;
+    height: 0px;
+    border: 50px solid transparent;
+    border-right-color: aqua;
+    transform: translateY(-300px) rotate(150deg);
+}
+
+.center {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes cycle {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 风车制作 */

@@ -299,12 +299,46 @@ function getCountDown(time) {
 // 每秒钟更新一次剩余时间
 setInterval(function () {
     // 计算剩余时间
-    var remainingTime = getCountDown('2023-5-22 18:00:00');
+    var remainingTime = getCountDown('2023-6-22 18:00:00');
 
     // 更新元素内容
     document.getElementById('fTime').textContent = remainingTime;
 }, 1000);
 
 
-// 下面用来实现问候语切换的功能
+// 下面用来实现打字机效果
 
+/* document.addEventListener('DOMContentLoaded', () => {
+    // your code here
+
+
+    let wel = document.querySelector('.wel');
+    let chars = wel.textContent.split('');
+
+    for (let i = 0; i < chars.length; i++) {
+        console.log("打字机");
+        let char = chars[i];
+        let span = document.createElement('span');
+        span.textContent = char;
+        wel.appendChild(span);
+        span.addEventListener('animationend', () => {
+            let nextSpan = span.nextElementSibling;
+            if (nextSpan) {
+                nextSpan.style.animation = 'blink 1s infinite';
+                setTimeout(() => {
+                    span.style.color = '#000';
+                    span.nextElementSibling.style.opacity = 1;
+                }, 100); /* 0.1s 等待下划线消失, 切换颜色和显示下划线 
+            } else {
+                span.style.color = '#000';
+                span.previousElementSibling.style.opacity = 1;
+            }
+        });
+    }
+
+    wel.addEventListener('animationend', () => {
+        wel.style.overflow = 'unset'; /* 显示后取消文本裁剪 
+    });
+
+})      
+*/
