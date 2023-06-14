@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .tab_list {
+            width: 700px;
+            height: 40px;
+            /* background-color: aqua; */
+            /* overflow: hidden; */
+            border-bottom: 2px solid #666;
+        }
+
+        .tab_list ul {
+            float: left;
+            text-align: center;
+
+        }
+
+        .tab_list ul li {
+            width: 130px;
+            height: 30px;
+            margin: 5px 0;
+            border: 1px solid red;
+            line-height: 30px;
+            float: left;
+            list-style: none;
+            background-color: black;
+            color: white;
+        }
+
+        .tab_con {
+            width: 500px;
+            height: 500px;
+            text-align: center;
+        }
+
+        body .tab_list .current {
+            background-color: rgb(222, 54, 135);
+        }
+
+        .tab_con .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab_list">
+        <ul>
+            <li class="current">商品推荐</li>
+            <li>商品信息</li>
+            <li>规格与包装</li>
+            <li>售后信息</li>
+            <li>商品评价</li>
+        </ul>
+    </div>
+
+    <div class="tab_con">
+        <div class="item" style="display: block;">商品推荐内容</div>
+        <div class="item">商品信息内容</div>
+        <div class="item">规格与包装内容</div>
+        <div class="item">售后信息内容</div>
+        <div class="item">商品评价内容</div>
+    </div>
+    <script>
+        var lis = document.querySelector('.tab_list').querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                    console.log('执行');
+                }
+                this.className = 'current';
+                // 下面是内容区的制作
+                // 先遍历让里面所有属性消失，再通过点击使点击的那个恢复
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+                var index = this.getAttribute('index');
+                items[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>
