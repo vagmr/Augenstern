@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="Zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .bj {
+            margin: 100px auto;
+            width: 350px;
+            height: 110px;
+            text-align: center;
+        }
+
+        .bj>li {
+
+            width: 80px;
+            /* height: 100px; */
+            /* background-color: aqua; */
+            float: left;
+            margin-right: 5px;
+        }
+
+        li a {
+            /* display: block; */
+            display: inline-block;
+            width: 80px;
+            height: 20px;
+            border: 1px solid yellow;
+            margin-top: 5px;
+            background-color: brown;
+        }
+
+        li ul {
+            height: 70px;
+            /* background-color: aquamarine; */
+            border: 2px solid yellowgreen;
+            margin-top: 5px;
+            border-top: none;
+            display: none;
+        }
+
+        li ul li {
+            height: 20px;
+            font-size: 16px;
+            line-height: 20px;
+            margin: 2px 0;
+
+        }
+
+        li ul li:hover {
+            background-color: rgb(187, 35, 146);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bj">
+        <li>
+            <a href="">首页</a>
+            <ul>
+                <li>vagmr</li>
+                <li>vagmr</li>
+                <li>vagmr</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">导航</a>
+            <ul>
+                <li>vagmr</li>
+                <li>vagmr</li>
+                <li>vagmr</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">其他</a>
+            <ul>
+                <li>vagmr</li>
+                <li>vagmr</li>
+                <li>vagmr</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">关于</a>
+            <ul>
+                <li>vagmr</li>
+                <li>vagmr</li>
+                <li>vagmr</li>
+            </ul>
+        </li>
+    </div>
+    <script>
+        // 下拉菜单的制作
+        // 获取具有类名为 'bj' 的元素节点
+        var bj = document.querySelector('.bj');
+
+        // 获取 bj 元素的所有子节点，也就是 li 元素们
+        var lis = bj.children;
+
+        // 输出 lis 变量的值（即所有 li 元素），便于查看
+        console.log(lis);
+
+        // 遍历 lis 变量中的每一个 li 元素
+        for (var i = 0; i < lis.length; i++) {
+
+            // 当鼠标移到某个 li 元素上时，执行下面的语句
+            lis[i].onmouseover = function () {
+
+                // 将该 li 元素下的第二个子元素（索引为 1）设为显示状态
+                this.children[1].style.display = 'block';
+            }
+
+            // 当鼠标移开某个 li 元素时，执行下面的语句
+            lis[i].onmouseout = function () {
+
+                // 将该 li 元素下的第二个子元素（索引为 1）设为隐藏状态
+                this.children[1].style.display = 'none';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
