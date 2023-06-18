@@ -132,8 +132,12 @@
             // 行里面创建单元格td
             for (var k in datum[i]) {//对象遍历用for k in obj,里面的循环管列
                 var td = document.createElement('td');
+                console.log(datum[i]);
+                console.log(datum[i][k]);
                 tr.appendChild(td);
+                td.innerText = datum[i][k];
             }
+            // 3.创建有删除两个字的单元格
         }
     </script>
 </body>
