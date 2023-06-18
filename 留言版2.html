@@ -11,8 +11,13 @@
             padding: 0;
         }
 
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
         .ly {
-            width: 800px;
+            width: 889px;
             height: 300px;
             background-color: aquamarine;
             text-align: center;
@@ -47,12 +52,14 @@
         ul {
             color: white;
             list-style: none;
+            margin-top: 40px;
         }
 
         ul li {
+            position: relative;
             text-align: left;
             margin: 10px 0;
-            margin-left: 35px;
+            margin-left: 8px;
             margin-top: 25px;
             width: 200px;
             height: 100px;
@@ -60,7 +67,6 @@
             /* 设置内边距 */
             padding: 5px;
             /* 将 word-wrap 属性改为 break-all */
-            word-wrap: break-all;
             /* 允许长单词或 URL 换行 */
             white-space: pre-wrap;
             /* 使用换行符对文本进行预格式化 */
@@ -88,10 +94,25 @@
             box-shadow: 0 2px 14px 8px rgba(236, 131, 239, 0.581);
         }
 
+        li a {
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 40px;
+            height: 20px;
+            transform: translateX(-50%);
+            border: 1px solid red;
+            background-color: black;
+            line-height: 20px;
+            text-align: center;
+        }
+
         .sc {
             position: absolute;
             bottom: 90px;
-            left: 400px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -111,6 +132,7 @@
         var ul = document.querySelector('ul');
         var text = document.querySelector('textarea');
         var del = document.querySelector('.sc');
+
         var isDisabled = false; // 新增变量用于保存删除按钮的状态
         btn.onclick = function () {
             if (text.value == '') {
@@ -119,9 +141,16 @@
             }
             else {
                 var li = document.createElement('li');
-                li.innerText = text.value;
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                console.log(as);
                 ul.insertBefore(li, ul.children[0]);
                 text.value = '';
+                var as = document.querySelectorAll('a');
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        ul.removeChild(this.parentNode);
+                    }
+                }
             }
         }
         del.onclick = function () {
@@ -143,6 +172,7 @@
                 isDisabled = false; // 恢复删除按钮的可用状态
             }
         }
+
     </script>
 </body>
 

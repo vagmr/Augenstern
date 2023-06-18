@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+    <style>
+        table {
+            width: 500px;
+            /* 表格宽度为 100% */
+            border-collapse: collapse;
+            /* 单元格边框合并 */
+            margin-bottom: 20px;
+            /* 与下方内容留出一定的距离 */
+            margin: 100px auto;
+        }
+
+        thead {
+            background-color: #929292;
+            /* 表头背景色 */
+        }
+
+        th {
+            text-align: left;
+            /* 表头左对齐 */
+            padding: 10px;
+            /* 表头和表体单元格内边距 */
+            font-weight: bold;
+            /* 表头加粗 */
+            font-size: 1.1em;
+            /* 表头字号稍大一些 */
+            border-right: 2px solid #d9d9d9;
+            /* 表头右边框细线 */
+        }
+
+        td {
+            padding: 10px;
+            /* 表头和表体单元格内边距 */
+            border-top: 2px solid #d9d9d9;
+            /* 表格横线细线 */
+            border-right: 2px solid #d9d9d9;
+            /* 表格竖线细线 */
+        }
+
+        /* 最后一列单元格没有右边框线 */
+        td:last-child,
+        th:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var datum = [
+            {
+                name: "饶创",
+                subject: "java",
+                score: 60,
+            }, {
+                name: "宝批龙",
+                subject: "java",
+                score: 50,
+            }, {
+                name: "张飞",
+                subject: "java",
+                score: 70,
+            },
+            {
+                name: "黄斌",
+                subject: "java",
+                score: 64,
+            },
+            {
+                name: "许正",
+                subject: "java",
+                score: 78,
+            },
+            {
+                name: "程一",
+                subject: "java",
+                score: 54,
+            },
+            {
+                name: "余二",
+                subject: "java",
+                score: 59,
+            },
+            {
+                name: "夏三",
+                subject: "java",
+                score: 69,
+            },
+            {
+                name: "姜四",
+                subject: "java",
+                score: 76,
+            },
+            {
+                name: "萧五",
+                subject: "java",
+                score: 83,
+            },
+            {
+                name: "朱六",
+                subject: "java",
+                score: 47,
+            },
+            {
+                name: "彭七",
+                subject: "java",
+                score: 75,
+            },
+        ]
+        // 动态的创建行
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < datum.length; i++) {
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            // 行里面创建单元格td
+            for (var k in datum[i]) {//对象遍历用for k in obj,里面的循环管列
+                var td = document.createElement('td');
+                tr.appendChild(td);
+            }
+        }
+    </script>
+</body>
+
+</html>
