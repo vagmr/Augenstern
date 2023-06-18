@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ly {
+            width: 800px;
+            height: 300px;
+            background-color: aquamarine;
+            text-align: center;
+            position: relative;
+            overflow: auto;
+        }
+
+        textarea {
+            resize: none;
+            outline: 2px solid royalblue;
+            /* margin-top: 50px; */
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        button {
+            position: absolute;
+            bottom: 130px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background-color: aqua;
+        }
+
+        ul {
+            color: white;
+            list-style: none;
+        }
+
+        ul li {
+            text-align: left;
+            margin: 10px 0;
+            margin-left: 35px;
+            margin-top: 25px;
+            width: 200px;
+            height: 100px;
+            line-height: 1;
+            /* 设置内边距 */
+            padding: 5px;
+            /* 将 word-wrap 属性改为 break-all */
+            word-wrap: break-all;
+            /* 允许长单词或 URL 换行 */
+            white-space: pre-wrap;
+            /* 使用换行符对文本进行预格式化 */
+            overflow-wrap: break-word;
+            float: left;
+        }
+
+        ul li:hover {
+            box-shadow: 0 2px 14px 8px;
+            transform: translateY(-5px);
+        }
+
+        ul li:nth-child(odd) {
+            background-color: #dc692063;
+            color: black;
+        }
+
+        ul li:nth-child(even) {
+            background-color: rgb(126 35 171 / 49%);
+            color: #53ffdf;
+        }
+
+        ul li:nth-child(even):hover {
+            transform: translateY(-5px);
+            box-shadow: 0 2px 14px 8px rgba(236, 131, 239, 0.581);
+        }
+
+        .sc {
+            position: absolute;
+            bottom: 90px;
+            left: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ly">
+        <label for="wb">留言板</label>
+        <textarea name="wb" id="v1" cols="65" rows="7"></textarea>
+        <button class="fb">发布</button>
+        <button class="sc">删除</button>
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        var btn = document.querySelector('.fb');
+        var ul = document.querySelector('ul');
+        var text = document.querySelector('textarea');
+        var del = document.querySelector('.sc');
+        var isDisabled = false; // 新增变量用于保存删除按钮的状态
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('请输入内容');
+                return false;
+            }
+            else {
+                var li = document.createElement('li');
+                li.innerText = text.value;
+                ul.insertBefore(li, ul.children[0]);
+                text.value = '';
+            }
+        }
+        del.onclick = function () {
+            if (isDisabled) { // 如果删除按钮已经禁用，则返回
+                return;
+            }
+            if (ul.children.length == 0) {
+                this.disabled = true;
+                isDisabled = true; // 禁用删除按钮并更新状态
+            }
+            else {
+                ul.removeChild(ul.children[0]);
+            }
+        }
+        // 在输入框获得焦点时恢复删除按钮
+        text.onfocus = function () {
+            if (isDisabled) {
+                del.disabled = false;
+                isDisabled = false; // 恢复删除按钮的可用状态
+            }
+        }
+    </script>
+</body>
+
+</html>

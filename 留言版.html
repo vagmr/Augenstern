@@ -177,6 +177,7 @@
             contentDiv.append(email_span)
             item.appendChild(meta);
             item.appendChild(contentDiv);
+            // 插入到第一个元素之前
             mes.insertBefore(item, mes.firstChild);
             // 清空表单并提示留言成功
             document.querySelector('#name').value = '';
