@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘对象事件</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        var ipt = document.querySelector('input');
+        document.addEventListener('keyup', function (e) {
+
+            console.log(e.code);
+            console.log(e.keyCode);
+            if (e.code == "KeyS") {
+                ipt.focus();
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监听事件</title>
+</head>
+
+<body>
+    <h1>我是vagmr,很高兴认识你</h1>
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        })
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        })
+        document.addEventListener('click', function (e) {
+            console.log(e.clientX);
+            console.log(e.clientY);
+            console.log("================================");
+            console.log(e.pageX);
+            console.log(e.pageY);
+        })
+    </script>
+</body>
+
+</html>
