@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>学习日历</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calendar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .day {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 3px;
+            line-height: 30px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .today {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .selected {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .completed {
+            background-color: #ffc107;
+            color: #000;
+        }
+
+        .completed::after {
+            content: "\2713";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        #selectedMonth {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #selectedDate {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .study-record {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .study-record span {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>学习日历</h2>
+        <button class="button" onclick="previousMonth()">上一个月</button>
+        <button class="button" onclick="nextMonth()">下一个月</button>
+        <div class="calendar" id="calendar"></div>
+        <div id="selectedMonth"></div>
+        <div id="selectedDate"></div>
+        <div id="addRecordButton" style="display: none;">
+            <button class="button" onclick="showInputFields()">添加打卡记录</button>
+        </div>
+        <div id="inputFields" style="display: none;">
+            <input type="text" class="input-field" id="studyTopic" placeholder="请输入学习主题">
+            <input type="text" class="input-field" id="studyDuration" placeholder="请输入学习时长">
+            <input type="text" class="input-field" id="studyAchievement" placeholder="请输入学习成果">
+            <button class="button" onclick="saveStudyRecord()">保存</button>
+        </div>
+        <div id="studyRecords"></div>
+        <div>created by vagmr</div>
+    </div>
+    <script>
+        var today = new Date();
+        var currentMonth = today.getMonth();
+        var currentYear = today.getFullYear();
+        var selectedDate;
+        var studyRecords = {};
+
+        function generateCalendar() {
+            var calendarElement = document.getElementById("calendar");
+            calendarElement.innerHTML = "";
+
+            var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            for (var i = 1; i <= daysInMonth; i++) {
+                var dayElement = document.createElement("div");
+                dayElement.classList.add("day");
+                dayElement.innerHTML = i;
+
+                dayElement.onclick = function () {
+                    var selectedDay = this.innerHTML;
+                    selectedDate = new Date(currentYear, currentMonth, selectedDay);
+                    renderSelectedDate();
+                    renderStudyRecords(selectedDate.toJSON().slice(0, 10));
+                    var addRecordButton = document.getElementById("addRecordButton");
+                    addRecordButton.style.display = "block";
+                    var inputFields = document.getElementById("inputFields");
+                    inputFields.style.display = "none";
+                };
+
+                var today = new Date();
+                if (currentMonth === today.getMonth() && currentYear === today.getFullYear() && i === today.getDate()) {
+                    dayElement.classList.add("today");
+                }
+
+                var dateStr = new Date(currentYear, currentMonth, i).toJSON().slice(0, 10);
+                if (studyRecords[dateStr] && studyRecords[dateStr].length > 0) {
+                    dayElement.classList.add("completed");
+                }
+
+                calendarElement.appendChild(dayElement);
+            }
+
+            renderSelectedMonth();
+        }
+
+        function renderSelectedMonth() {
+            var selectedMonthElement = document.getElementById("selectedMonth");
+            selectedMonthElement.innerHTML = new Date(currentYear, currentMonth).toLocaleString("default", { month: "long", year: "numeric" });
+        }
+
+        function renderSelectedDate() {
+            var selectedDateElement = document.getElementById("selectedDate");
+            selectedDateElement.innerHTML = selectedDate.toLocaleString("default", { month: "long", day: "numeric", year: "numeric" });
+        }
+
+        function showInputFields() {
+            var addRecordButton = document.getElementById("addRecordButton");
+            addRecordButton.style.display = "none";
+            var inputFields = document.getElementById("inputFields");
+            inputFields.style.display = "block";
+        }
+
+        function saveStudyRecord() {
+            var studyTopic = document.getElementById("studyTopic").value.trim();
+            var studyDuration = document.getElementById("studyDuration").value.trim();
+            var studyAchievement = document.getElementById("studyAchievement").value.trim();
+
+            if (studyTopic && studyDuration && studyAchievement) {
+                var studyRecord = {
+                    id: new Date().getTime(),
+                    topic: studyTopic,
+                    duration: studyDuration,
+                    achievement: studyAchievement
+                };
+
+                var dateStr = selectedDate.toJSON().slice(0, 10);
+                if (!studyRecords[dateStr]) {
+                    studyRecords[dateStr] = [];
+                }
+                studyRecords[dateStr].push(studyRecord);
+
+                renderStudyRecords(dateStr);
+
+                document.getElementById("studyTopic").value = "";
+                document.getElementById("studyDuration").value = "";
+                document.getElementById("studyAchievement").value = "";
+
+                var addRecordButton = document.getElementById("addRecordButton");
+                addRecordButton.style.display = "block";
+                var inputFields = document.getElementById("inputFields");
+                inputFields.style.display = "none";
+            }
+        }
+
+        function renderStudyRecords(date) {
+            var studyRecordsData = studyRecords[date];
+            var studyRecordsElement = document.getElementById("studyRecords");
+            studyRecordsElement.innerHTML = "";
+
+            if (studyRecordsData) {
+                for (var i = 0; i < studyRecordsData.length; i++) {
+                    var studyRecord = studyRecordsData[i];
+
+                    var studyRecordElement = document.createElement("div");
+                    studyRecordElement.classList.add("study-record");
+
+                    var deleteButton = document.createElement("button");
+                    deleteButton.innerHTML = "删除";
+                    deleteButton.classList.add("button");
+                    deleteButton.onclick = function () {
+                        deleteStudyRecord(date, studyRecord.id);
+                    };
+                    studyRecordElement.appendChild(deleteButton);
+
+                    var studyRecordText = document.createElement("span");
+                    studyRecordText.innerHTML = studyRecord.topic + "：" + studyRecord.duration + "小时，" + studyRecord.achievement;
+                    studyRecordElement.appendChild(studyRecordText);
+
+                    studyRecordsElement.appendChild(studyRecordElement);
+                }
+            }
+        }
+
+        function deleteStudyRecord(date, id) {
+            var studyRecordsData = studyRecords[date];
+            if (studyRecordsData) {
+                for (var i = 0; i < studyRecordsData.length; i++) {
+                    if (studyRecordsData[i].id === id) {
+                        studyRecordsData.splice(i, 1);
+                        renderStudyRecords(date);
+                        return;
+                    }
+                }
+            }
+        }
+
+        function previousMonth() {
+            if (currentMonth === 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else {
+                currentMonth--;
+            }
+            generateCalendar();
+        }
+
+        function nextMonth() {
+            if (currentMonth === 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else {
+                currentMonth++;
+            }
+            generateCalendar();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            generateCalendar();
+        });
+    </script>
+</body>
+
+</html>

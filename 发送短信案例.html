@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发送短信</title>
+</head>
+
+<body>
+    <section>
+        手机号码：<input type="number" name="" id=""><button>发送</button>
+    </section>
+    <script>
+        var btn = document.querySelector('button');
+        var s = 10;
+        btn.onclick = function () {
+            let dsq = setInterval(function () {
+                btn.disabled = true;
+                btn.innerHTML = '还有' + s + '秒发送';
+                if (s == 0) {
+                    btn.disabled = false;
+                    clearInterval(dsq);//停止计时器
+                    btn.innerHTML = '发送'
+                    s = 10;//重置计时
+                }
+                // console.log(s);
+                s--;
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

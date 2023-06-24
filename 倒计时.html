@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <style>
+        .f {
+            width: 240px;
+            height: 60px;
+            border: none;
+            background-color: white;
+        }
+
+        .up {
+            width: 225px;
+            height: 20px;
+            line-height: 20px;
+            color: rgb(231, 87, 212);
+            /* margin-left: 2px; */
+
+        }
+
+        div {
+            width: 55px;
+            height: 30px;
+            float: left;
+            border: 1px solid white;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="f">
+        <div class="up">倒计时</div>
+        <div class="d"></div>
+        <div class="hours"></div>
+        <div class="minute"></div>
+        <div class="seconds"></div>
+    </div>
+
+</body>
+<script>
+    var day = document.querySelector('.d');
+    var hour = document.querySelector('.hours');
+    var minute = document.querySelector('.minute');
+    var second = document.querySelector('.seconds');
+    var inputTime = +new Date('2023-6-30 18:00:00');
+    function Countdown() {
+        var nowTime = +new Date();//返回当前时间的毫秒数
+        var countTime = (inputTime - nowTime) / 1000;//返回剩余时间的秒数
+        var d = parseInt(countTime / 60 / 60 / 24);//天
+        d = d < 10 ? '0' + d : d;
+        day.innerHTML = d;
+        var h = parseInt(countTime / 60 / 60 % 24);//通过取模找出不足一天的
+        h = h < 10 ? '0' + h : h;
+        hour.innerHTML = h;
+        var m = parseInt(countTime / 60 % 60);//分
+        m = m < 10 ? '0' + m : m;
+        minute.innerHTML = m;
+        var s = parseInt(countTime % 60);
+        s = s < 10 ? '0' + s : s;
+        second.innerHTML = s;
+    }
+    setInterval(Countdown, 1000);
+</script>
+
+</html>
