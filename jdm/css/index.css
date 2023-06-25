@@ -46,3 +46,83 @@ li {
     width: 25%;
     background-color: #F63515;
 }
+
+/* 搜素部分制作 */
+.search_wrap {
+    height: 44px;
+    position: relative;
+    /* 外边距合并 */
+    overflow: hidden;
+}
+
+.search_home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+
+}
+
+.search_home::before {
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 18px;
+    background: url(../images/menu.png) no-repeat;
+    background-size: 20px 18px;
+    margin: 14px 0 0 15px;
+}
+
+
+
+.search_login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+    color: white;
+    text-align: center;
+    line-height: 44px;
+
+}
+
+.search {
+    position: relative;
+    height: 30px;
+    background-color: aquamarine;
+    margin: 0 50px;
+    border-radius: 10px;
+    margin-top: 7px;
+}
+
+.jd_ico {
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: url(../images/jd.png) no-repeat;
+    background-size: 20px 15px;
+}
+
+.jd_ico::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 18px;
+    background-color: red;
+    position: absolute;
+    right: -12px;
+    top: -2px;
+}
+
+.sou {
+    position: absolute;
+    left: 45px;
+    top: 0px;
+    width: 18px;
+    height: 15px;
+    background: url(../images/jd-sprites1.png) no-repeat -81px 0;
+}
