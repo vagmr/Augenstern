@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/common.css">
     <!-- 引入其他的css样式 -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/new.css">
     <!-- 设置网站的fav图标 -->
     <link rel="shortcut icon" href="image/shopping.ico" type="image/x-icon">
     <script src="js/button.js"></script>
@@ -129,21 +130,34 @@
     </nav>
     <!-- main模块的制作 -->
     <div class="w main">
-        <div class="ml"><i class="arrow">&gt;</i></div>
-        <script>
-            var btn = document.querySelector('.arrow');
-            var ml = document.querySelector('.ml');
-            var flag = 0;
-            btn.onclick = function () {
-                if (flag == 0) {
-                    ml.style.backgroundImage = 'url(image/s2.png)';
-                    flag = 1;
-                } else if (flag == 1) {
-                    ml.style.backgroundImage = 'url(image/s1.png)';
-                    flag = 0;
-                }
-            }
-        </script>
+        <div class="ml">
+
+            <!-- 左侧按钮 -->
+            <a href="javascript:;" class="arrow-l">
+                &lt; </a>
+
+            <a href="javascript:;" class="arrow">&gt;</a>
+            <!-- 核心的滚动区域 -->
+            <ul>
+                <li>
+                    <a href="javascript:;"><img src="../res/jsimg/focus.jpg" alt=" "></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="../res/jsimg/focus1.jpg" alt=" "></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="../res/jsimg/focus2.jpg" alt=" "></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="../res/jsimg/focus3.jpg" alt=" "></a>
+                </li>
+            </ul>
+            <!-- 小圆圈 -->
+            <ol class="circle">
+            </ol>
+        </div>
+
+
         <div class="mr1">
             <div class="news">
                 <div class="newsup">

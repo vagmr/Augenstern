@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单的动画函数封装</title>
+    <style>
+        div {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: palegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>点击移动</button>
+    <script>
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                obj.speed = (target - obj.offsetLeft) / 10;
+                obj.speed = obj.speed > 0 ? Math.ceil(obj.speed) : Math.floor(obj.speed);
+                if (obj.offsetLeft >= target) {
+                    clearInterval(obj.timer)
+                    //添加回调函数
+                    if (callback) { callback(); }
+                }
+                else {
+                    obj.style.left = obj.offsetLeft + obj.speed + 'px';
+                }
+            }, 100);
+        }
+        var div = document.querySelector('div');
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            animate(div, 500, function () {
+                alert('fuck 有')
+            });
+        }
+    </script>
+</body>
+
+</html>

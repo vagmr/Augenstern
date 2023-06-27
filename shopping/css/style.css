@@ -15,10 +15,10 @@
 .main {
     width: 978px;
     height: 449px;
-    background-color: pink;
+    /* background-color: pink; */
     margin-left: 380px;
     margin-bottom: 13px;
-    overflow: hidden;
+
 }
 
 .ml {
@@ -26,9 +26,25 @@
     float: left;
     width: 720px;
     height: 439px;
-    background: url(../image/s1.png) no-repeat;
+    /* background: url(../image/s1.png) no-repeat; */
     margin-top: 10px;
     margin-right: 10px;
+    overflow: hidden;
+}
+
+.ml ul {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 600%;
+}
+
+.ml ul img {
+    width: 720px;
+}
+
+.ml ul li {
+    float: left;
 }
 
 .mr1 {
@@ -53,6 +69,7 @@
     font-size: 14px;
     color: #333333;
     font-weight: 400;
+    font-style: italic;
 }
 
 .newsup h4 {
@@ -114,6 +131,7 @@
 
 /* 设置定位小箭头进行轮播图切换 */
 .arrow {
+    display: none;
     position: absolute;
     top: 200px;
     right: 0;
@@ -123,6 +141,16 @@
     cursor: pointer;
 }
 
+.arrow-l {
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    font-size: 40px;
+    color: rgb(255, 2, 2);
+    z-index: 2;
+    cursor: pointer;
+}
 
 
 /* main模块制作 */
