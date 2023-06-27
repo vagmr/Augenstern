@@ -7,7 +7,7 @@ window.onload = function () {
             if (obj.offsetLeft == target) {
                 clearInterval(obj.timer)
                 //添加回调函数
-                if (callback) { callback(); }
+                callback && callback();
             }
             else {
                 obj.style.left = obj.offsetLeft + obj.speed + 'px';
@@ -25,10 +25,14 @@ window.onload = function () {
     divml.addEventListener('mouseover', function () {
         arrow1.style.display = 'block';
         arrow2.style.display = 'block';
+        clearInterval(timer);
     });
     divml.addEventListener('mouseleave', function () {
         arrow1.style.display = 'none';
         arrow2.style.display = 'none';
+        timer = setInterval(function () {
+            arrow2.click();
+        }, 2000)
     });
     //end=======================================
     //动态创建小圆圈
@@ -67,37 +71,57 @@ window.onload = function () {
     ul.appendChild(first);
     //end=====================================
     // 通过按钮切换轮播图
-
+    //设置节流阀
+    var flag = true;
+    //右侧按钮
     arrow2.addEventListener('click', function () {
-        if (num == 4) {
-            ul.style.left = '0';
-            num = 0;
+        if (flag) {
+            flag = false;
+            if (num == 4) {
+                ul.style.left = '0';
+                num = 0;
+            }
+            num++;
+            animate(ul, - num * mlWidth, function () {
+                //执行到这个回调函数说明动画已经结束，可以开放节流阀
+                flag = true;
+            });
+            cricle++;
+            if (cricle == ol.children.length) {
+                cricle = 0;
+            }
+            change();
         }
-        num++;
-        animate(ul, - num * mlWidth);
-        cricle++;
-        if (cricle == ol.children.length) {
-            cricle = 0;
-        }
-        change();
     })
+    //左侧按钮
     arrow1.addEventListener('click', function () {
-        if (num == 0) {
-            num = ul.children.length - 1;
-            ul.style.left = - num * mlWidth + 'px';
+        if (flag) {
+            flag = false;
+            if (num == 0) {
+                num = ul.children.length - 1;
+                ul.style.left = - num * mlWidth + 'px';
+            }
+            num--;
+            animate(ul, - num * mlWidth, function () {
+                flag = true;
+            });
+            cricle--;
+            if (cricle < 0) {
+                cricle = 3;
+            }
+            change();
         }
-        num--;
-        animate(ul, - num * mlWidth);
-        cricle--;
-        if (cricle < 0) {
-            cricle = 3;
-        }
-        change();
     })
+    //清除小圆点样式的函数
     function change() {
         for (var i = 0; i < ol.children.length; i++) {
             ol.children[i].className = ' ';
         }
         ol.children[cricle].className = 'current';
     }
+    //实现自动播放功能
+
+    var timer = setInterval(function () {
+        arrow2.click();
+    }, 2000);
 }

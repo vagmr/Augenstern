@@ -6,7 +6,7 @@ function animate(obj, target, callback) {
         if (obj.offsetLeft == target) {
             clearInterval(obj.timer)
             //添加回调函数
-            if (callback) { callback(); }
+            callback && callback();
         }
         else {
             obj.style.left = obj.offsetLeft + obj.speed + 'px';
