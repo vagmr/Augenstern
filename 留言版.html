@@ -151,40 +151,75 @@
         var btn = document.querySelector('.btn');
         var text = document.querySelector('#content');
         var mes = document.querySelector('.message-list');
+        var messages = []; // 存储留言信息的数组
         btn.onclick = function () {
             // 1.获取新增内容
             var name = document.querySelector('#name').value;
             console.log(name);
             var email = document.querySelector('#email').value;
             var content = text.value;
+            // 创建留言对象
+            var message = {
+                name: name,
+                email: email,
+                content: content,
+                time: new Date().toLocaleString()
+            };
+
+            // 将留言对象添加到数组中
+            messages.push(message);
+            //存储会话
+            // 存储到localStorage中
+            localStorage.setItem('messages', JSON.stringify(messages));
             //2.创建元素
+            show(message);
+            // 清空表单并提示留言成功
+            document.querySelector('#name').value = '';
+            document.querySelector('#email').value = '';
+            text.value = '';
+            alert('留言成功！');
+
+        }
+        function show(message) {
+            // 创建元素
             var item = document.createElement('div');
             item.className = 'message-item';
             var meta = document.createElement('div');
             meta.className = 'meta';
             var name_span = document.createElement('span');
-            name_span.innerText = name;
+            name_span.innerText = message.name;
             var time_span = document.createElement('span');
-            time_span.innerText = new Date().toLocaleString();
+            time_span.innerText = message.time;
             var contentDiv = document.createElement('div');
             contentDiv.className = 'content';
-            contentDiv.innerText = content;
+            contentDiv.innerText = message.content;
             var email_span = document.createElement('span');
-            email_span.innerText = email;
+            email_span.innerText = message.email;
+
             // 添加到留言列表中
             meta.appendChild(name_span);
             meta.appendChild(time_span);
             contentDiv.append(email_span)
             item.appendChild(meta);
             item.appendChild(contentDiv);
+
             // 插入到第一个元素之前
             mes.insertBefore(item, mes.firstChild);
-            // 清空表单并提示留言成功
-            document.querySelector('#name').value = '';
-            document.querySelector('#email').value = '';
-            text.value = '';
-            alert('留言成功！');
         }
+
+        window.onload = function () {
+            // 从localStorage中读取存储的留言信息
+            var storedMessages = localStorage.getItem('messages');
+            if (storedMessages) {
+                messages = JSON.parse(storedMessages);
+
+                // 遍历留言数组，显示每条留言
+                for (var i = 0; i < messages.length; i++) {
+                    show(messages[i]);
+                }
+            }
+        }
+
     </script>
 </body>
 
