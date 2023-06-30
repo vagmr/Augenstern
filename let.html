@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let测试</title>
+    <style>
+        .item {
+            float: left;
+            margin-left: 5px;
+            width: 200px;
+            height: 200px;
+            border: 2px solid palegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <Script>
+        var item = document.getElementsByClassName('item');
+        for (let i = 0; i < item.length; i++) {
+
+            item[i].onclick = function () {
+                for (let i = 0; i < item.length; i++) {
+                    item[i].style.backgroundColor = "";
+                }
+                item[i].style.backgroundColor = "pink";
+            }
+        }
+        let a = [1, 223, 44, 555, 555555, 2242, 5535];
+        //js中的箭头函数更偏向于lambda表达式
+        let result = a.filter(a => a > 200);
+        console.log(result);
+    </Script>
+</body>
+
+</html>
