@@ -2,9 +2,13 @@ import sys
 import requests
 import json
 import hashlib
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QCheckBox, QFileDialog, QTextEdit
-from PyQt5.QtGui import QFont, QColor, QPainter, QPalette
-from PyQt5.QtCore import Qt, QTimer, QPropertyAnimation
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QFileDialog, QTextEdit
+from PyQt5.QtGui import QFont, QColor, QPainter, QPalette, QIcon
+from PyQt5.QtCore import Qt, QTimer, QPropertyAnimation, QEvent, pyqtSignal, QPoint,QEasingCurve
+import os
+
+
+
 
 def generate_sign(appid, q, salt, secret_key):
     sign_str = f"{appid}{q}{salt}{secret_key}"
@@ -31,6 +35,57 @@ class StyledLineEdit(QLineEdit):
             }
         """)
 
+        self.animation = QPropertyAnimation(self, b"geometry")
+        self.animation.setDuration(200)
+        self.animation.setEasingCurve(QEasingCurve.OutBack)
+
+        self.installEventFilter(self)
+
+    def eventFilter(self, obj, event):
+        if obj == self and event.type() == QEvent.HoverEnter:
+            self.animation.setStartValue(self.geometry())
+            self.animation.setEndValue(self.geometry().adjusted(-5, -5, 5, 5))
+            self.animation.start()
+        elif obj == self and event.type() == QEvent.HoverLeave:
+            self.animation.setStartValue(self.geometry())
+            self.animation.setEndValue(self.geometry().adjusted(5, 5, -5, -5))
+            self.animation.start()
+
+        return super().eventFilter(obj, event)
+
+class StyledButton(QPushButton):
+    def __init__(self, text):
+        super().__init__(text)
+
+        self.setStyleSheet("""
+            QPushButton {
+                font-family: Arial;
+                font-size: 14px;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: #FFF;
+                border-radius: 10px;
+            }
+        """)
+
+        self.animation = QPropertyAnimation(self, b"geometry")
+        self.animation.setDuration(200)
+        self.animation.setEasingCurve(QEasingCurve.OutBack)
+
+        self.installEventFilter(self)
+
+    def eventFilter(self, obj, event):
+        if obj == self and event.type() == QEvent.HoverEnter:
+            self.animation.setStartValue(self.geometry())
+            self.animation.setEndValue(self.geometry().adjusted(-5, -5, 5, 5))
+            self.animation.start()
+        elif obj == self and event.type() == QEvent.HoverLeave:
+            self.animation.setStartValue(self.geometry())
+            self.animation.setEndValue(self.geometry().adjusted(5, 5, -5, -5))
+            self.animation.start()
+
+        return super().eventFilter(obj, event)
+
 class TranslationWidget(QWidget):
     def __init__(self):
         super().__init__()
@@ -38,68 +93,57 @@ class TranslationWidget(QWidget):
 
     def init_ui(self):
         self.setWindowTitle("翻译应用")
-        self.setStyleSheet("""
-            font-family: Arial;
-            font-size: 12px;
-            background-color: #FFF;
-        """)
-        self.resize(600, 400)
-        
-        layout = QVBoxLayout()
-        layout.setAlignment(Qt.AlignCenter)
+        # 获取当前文件所在目录的绝对路径
+        current_dir = os.path.dirname(os.path.abspath(__file__))
 
-        input_layout = QHBoxLayout()
-        input_layout.addWidget(QLabel("请输入要翻译的文本:"))
+        # 构建图标文件的绝对路径
+        icon_path = os.path.join(current_dir, "res", "ip.png")
+
+        # 设置窗口图标
+        self.setWindowIcon(QIcon(icon_path))
+        # self.setWindowIcon(QIcon("res/ip.png"))
+
+        layout = QVBoxLayout()
+
+        label = QLabel("请输入要翻译的文本：")
+        label.setFont(QFont("Arial", 14))
+        label.setAlignment(Qt.AlignCenter)
+        layout.addWidget(label)
+
         self.text_input = StyledLineEdit()
-        input_layout.addWidget(self.text_input)
-        layout.addLayout(input_layout)
+        layout.addWidget(self.text_input)
+
+        self.translate_button = StyledButton("翻译")
+        self.translate_button.clicked.connect(self.translate_text)
+        layout.addWidget(self.translate_button)
 
         self.output_text = QTextEdit()
         self.output_text.setReadOnly(True)
         self.output_text.setStyleSheet("""
-            font-family: Arial;
-            font-size: 14px;
-            color: #333;
-            background-color: #F0F0F0;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            padding: 10px;
+            QTextEdit {
+                font-family: Arial;
+                font-size: 16px;
+                color: #333;
+                background-color: #F0F0F0;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                padding: 10px;
+            }
         """)
         layout.addWidget(self.output_text)
 
-        button_layout = QHBoxLayout()
-        self.translate_button = QPushButton("翻译")
-        self.translate_button.setStyleSheet("""
-            font-family: Arial;
-            font-size: 14px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #FFF;
-            border-radius: 10px;
-        """)
-        self.translate_button.clicked.connect(self.translate_text)
-        button_layout.addWidget(self.translate_button)
+        save_button = StyledButton("保存为JSON")
+        save_button.clicked.connect(self.save_json)
+        layout.addWidget(save_button)
 
-        self.save_button = QPushButton("保存为JSON文件")
-        self.save_button.setStyleSheet("""
-            font-family: Arial;
-            font-size: 14px;
-            padding: 10px 20px;
-            background-color: #2196F3;
-            color: #FFF;
-            border-radius: 10px;
-        """)
-        self.save_button.clicked.connect(self.save_json)
-        button_layout.addWidget(self.save_button)
-
-        layout.addLayout(button_layout)
         self.setLayout(layout)
 
     def translate_text(self):
-        text = self.text_input.text()
+        text = self.text_input.text().strip()
         if text:
             appid = "20210103000662299"
-            salt = "1435660288"
+            salt = "123456vagmr"
+
             secret_key = "4Nw0vyG4eA5iZUig4GTn"
             sign = generate_sign(appid, text, salt, secret_key)
 
