@@ -1,0 +1,109 @@
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 44px;
+    min-width: 320px;
+    max-width: 540px;
+    /* background-color: palegreen; */
+    background-color: #F6F6F6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.search {
+    position: relative;
+    height: 26px;
+    border: 1px solid palevioletred;
+    margin: 8px 9px;
+    flex: 1;
+    border-radius: 5px;
+    color: rgb(142, 144, 145);
+    box-shadow: 0 3px 2px 3px;
+}
+
+.search::before {
+    content: "";
+    display: block;
+    height: 15px;
+    width: 15px;
+    background: url(../image/sprite.png) no-repeat -59px -279px;
+    background-size: 104px auto;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    z-index: 2;
+}
+
+.uers {
+    height: 44px;
+    width: 44px;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(42, 118, 210);
+}
+
+.uers::before {
+    content: " ";
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    /* x,y */
+    background: url(../image/sprite.png) no-repeat -59px -194px;
+    /* 精灵图缩放，一半大小 */
+    background-size: 104px auto;
+    margin: 4px auto;
+    margin-bottom: -2px;
+}
+
+.focus {
+    padding-top: 44px;
+}
+
+.focus ul {
+    width: 500%;
+    position: relative;
+}
+
+.focus ul li {
+    float: left;
+    width: 540px;
+    height: 200px;
+}
+
+.focus ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+.focusc ol {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    float: left;
+}
+
+.focus ol li {
+    width: 20px;
+    height: 30px;
+    border-color: pink;
+}
