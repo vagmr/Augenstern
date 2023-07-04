@@ -13,8 +13,11 @@
     <div id="root">
         <h1>hello,{{name}}</h1>
         <h2>{{content}}</h2>
-        //v-bind可以简写为:
+        <!-- v-bind可以简写为: -->
         <a v-bind:href="url">问就是</a>
+        <br>
+        <span>单向动态绑定</span><input type="text" :value="txt">
+        <span>双向动态绑定</span><input type="text" v-model:value="txt">
     </div>
     <script>
         // 设置为 false 以阻止 vue 在启动时生成生产提示。
@@ -24,8 +27,9 @@
             el: '#root',//用于绑定和选择元素，值通常为css选择器
             data: {//data中存储使用，数据让el所指定的容器使用
                 name: 'vagmr',
-                content: "想让vue工作就必须创建vue实例，且要传入一个配置对象"
-                , url: 'https://private.vagmrgpt.top',
+                content: "想让vue工作就必须创建vue实例，且要传入一个配置对象",
+                url: 'https://private.vagmrgpt.top',
+                txt: "我的世界"
             },
         });
     </script>
