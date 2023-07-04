@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手指拖动事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="touch"></div>
+    <script>
+        //手指的初始坐标
+        var startX = 0;
+        var startY = 0;
+        //盒子本身的坐标
+        var X = 0;
+        var Y = 0;
+        var div = document.querySelector('div');
+        div.addEventListener('touchstart', function (e) {
+            startX = e.targetTouches[0].pageX;
+            startY = e.targetTouches[0].pageY;
+            X = div.offsetLeft;
+            Y = div.offsetTop;
+            console.log(X, Y);
+        })
+        div.addEventListener('touchmove', function (e) {
+            var moveX = e.targetTouches[0].pageX - startX;
+            var moveY = e.targetTouches[0].pageY - startY;
+
+            div.style.left = X + moveX + 'px';
+            div.style.top = Y + moveY + 'px';
+
+        })
+    </script>
+</body>
+
+</html>
