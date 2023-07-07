@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace OpenCorepiAndBypass.src
 {
+    
     class FileUtils
     {
         /// <summary>

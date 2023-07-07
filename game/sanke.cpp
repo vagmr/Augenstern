@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 const int width = 20;  // 游戏区域宽度
 const int height = 20; // 游戏区域高度
 

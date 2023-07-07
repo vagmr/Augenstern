@@ -13,6 +13,7 @@ def student_grade():
         nd[int(np.ceil(100*np.random.rand(1)))-1,int(np.ceil(3*np.random.rand(1)))-1] = np.NaN
     return nd
 
+
 def height_weight():
     nd = np.empty((100,2))
     for i in range(100):   #生成身高信息

@@ -78,6 +78,7 @@ li {
 .focus {
     padding-top: 44px;
     position: relative;
+    overflow: hidden;
 
 }
 
@@ -95,19 +96,20 @@ li {
     width: 100%;
 }
 
-.focus ul ol {
+.focus ol {
     position: absolute;
-    right: 10px;
-    bottom: -62px;
+    right: 30px;
+    bottom: 12px;
 }
 
 .focus ol li {
-    display: inline-block;
+    float: left;
     width: 15px;
     height: 5px;
     border-radius: 5px;
     background-color: aqua;
     margin-left: 5px;
+    transition: all .3s;
 }
 
 .focus ol .current {

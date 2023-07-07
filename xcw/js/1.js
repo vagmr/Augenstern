@@ -22,18 +22,46 @@ window.onload = function () {
     var ol = document.querySelector('ol');
     for (var i = 0; i < li.length; i++) {
         var oli = document.createElement('li');
-        oli.setAttribute("data-index", i);
         ol.appendChild(oli);
     }
+    var first = ul.children[0].cloneNode(true);
+    ul.appendChild(first);
+    var Two = ul.children[2].cloneNode(true);
+    ul.insertBefore(Two, ul.firstChild);
     var index = 0;
     var timer = setInterval(function () {
         index++;
         var translateX = - w * index;
         ul.style.transition = "all 0.5s";
         ul.style.transform = 'translateX(' + translateX + "px" + ')';
-        if (index == 3) {
-            index = -2;
-        }
     }, 2000)
-    ol.children[0].className = "current";
+    ol.children[0].className = 'current';
+    ul.addEventListener('transitionend', function () {
+        if (index >= 3) {
+            index = 0;
+            ul.style.transition = "none";
+            var translateX = - w * index;
+            ul.style.transform = 'translateX(' + translateX + "px" + ')';
+        } else if (index < 0) {
+            index = 2;
+            ul.style.transition = "none";
+            var translateX = - w * index;
+            ul.style.transform = 'translateX(' + translateX + "px" + ')';
+
+        }
+        ol.querySelector('.current').classList.remove('current');
+        ol.children[index].classList.add('current');
+    })
+    //手指滑动轮播图
+    let start = 0;
+    ul.addEventListener('touchstart', function (e) {
+        start = e.targetTouches[0].pageX;
+
+    })
+    ul.addEventListener('touchmove', function (e) {
+        let moveX = e.targetTouches[0].pageX - start;
+        let translateX = - w * index + moveX;
+        ul.style.transform = 'translateX(' + translateX + 'px)';
+    })
+
 }
