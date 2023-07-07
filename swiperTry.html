@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swipper测试</title>
+    <link rel="stylesheet" href="js/swiper-bundle.min.css">
+    <style>
+        .swiper {
+            width: 500px;
+            height: 500px;
+        }
+
+        .swiper img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-scrollbar {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="js/swiper-bundle.min.js"></script>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="res/1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="res/1.png" alt=""></div>
+            <div class="swiper-slide"><img src="res/2.png" alt="" srcset=""></div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+        <div class="swiper-pagination"></div>
+
+    </div>
+    <script>
+        var mySwiper = new Swiper('.swiper', {
+            speed: 800,
+            autoplay: {
+                delay: 2000,//1秒切换一次
+            },//可选选项，自动滑动
+            scrollbar: {
+                el: '.swiper-scrollbar',
+                dragSize: 300,
+                hide: false,
+                draggable: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            loop: true,
+        })
+        console.log(mySwiper);
+    </script>
+</body>
+
+</html>
