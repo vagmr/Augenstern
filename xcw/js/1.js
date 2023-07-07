@@ -16,7 +16,7 @@ window.onload = function () {
     }
     var focus = document.querySelector('.focus');
     var ul = document.querySelector(".ful");
-    var li = document.querySelectorAll('li');
+    var li = focus.querySelectorAll('li');
     var w = focus.offsetWidth;
     console.log(li);
     var ol = document.querySelector('ol');
@@ -63,5 +63,18 @@ window.onload = function () {
         let translateX = - w * index + moveX;
         ul.style.transform = 'translateX(' + translateX + 'px)';
     })
-
+    //用来切换背景精灵图
+    let bg = document.querySelector('.local_nav');
+    let bg_i = bg.querySelectorAll('i');
+    for (let i = 0; i < bg_i.length; i++) {
+        //使用模板字符串拼接
+        bg_i[i].style.backgroundPosition = `0 -${i * 32}px`;
+    }
+    //用来切换背景精灵图
+    let bg2 = document.querySelector('.sunnav_entry');
+    let bg_i2 = bg2.querySelectorAll('i');
+    for (let i = 0; i < bg_i2.length; i++) {
+        //使用模板字符串拼接
+        bg_i2[i].style.backgroundPosition = `0 -${i * 27.5}px`;
+    }
 }
