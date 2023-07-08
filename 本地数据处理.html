@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据处理表格</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .body {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: aqua;
+        }
+
+        .body h2 {
+            text-align: center;
+            font-family: "楷体";
+        }
+
+        section {
+            width: 800px;
+            margin: 10px auto;
+            transform: translateX(14%);
+            overflow: hidden;
+        }
+
+        section input {
+            display: block;
+            border: 0;
+            width: 80px;
+            height: 30px;
+            border: 2px solid olivedrab;
+            line-height: 30px;
+            border-radius: 5px;
+            float: left;
+            margin-right: 20px;
+        }
+
+        input:hover {
+            outline-color: black;
+        }
+
+        section select {
+            border: 0;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 5px;
+            float: left;
+            border: 1px solid black;
+            margin-right: 20px;
+        }
+
+        section .add {
+            float: left;
+            position: relative;
+            display: block;
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+            padding: 5px 10px;
+            line-height: 19px;
+            background-color: rgb(48, 227, 162);
+        }
+
+        .add i {
+            position: absolute;
+            left: 4px;
+            top: 6px;
+            font-size: 16px;
+        }
+
+        nav {
+            background-color: #ccc;
+            width: 1000px;
+            height: 50px;
+            margin: 10px auto;
+            position: relative;
+            border-radius: 5px;
+            box-shadow: 0 5px 3px 3px rgba(0, 0, 0, .7);
+        }
+
+        nav h4 {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 400;
+            font-family: "宋体";
+        }
+
+        nav h4 i {
+            color: rgb(200, 33, 144);
+            font-style: normal;
+            font-weight: 700;
+
+        }
+
+        table {
+            margin: 10px;
+            width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+            background-color: #bbb;
+            border-radius: 10px;
+        }
+
+        table th {
+            height: 50px;
+            background-color: #bbb;
+            border-radius: 10px;
+        }
+
+        table th:hover {
+            box-shadow: 0 3px;
+            transform: translateY(-3px);
+        }
+
+        table td:hover {
+            background-color: rgb(219, 89, 135);
+            transform: translateY(-3px);
+            box-shadow: 0 3px;
+        }
+
+        table tr {
+            height: 50px;
+            background-color: bisque;
+        }
+
+        table td a {
+            font-size: 16px;
+            position: relative;
+            padding-left: 10px;
+            background-color: rgb(93, 208, 166);
+        }
+
+        table td a i {
+            position: absolute;
+            font-size: 30px;
+            left: -18px;
+            top: -7px;
+        }
+    </style>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <div class="body">
+        <h2>本地数据存储</h2>
+        <!-- //下面是表单域 -->
+        <section>
+            <input type="text" placeholder="姓名" class="uname">
+            <input type="text" placeholder="年龄" class="age">
+            <input type="text" placeholder="薪资" class="salary">
+            <select class="gender">
+                <option value="男">男</option>
+                <option value="女">女</option>
+                <option value="其他">其他</option>
+            </select>
+            <select class="area">
+                <option value="北京">北京</option>
+                <option value="武汉">武汉</option>
+                <option value="上海">上海</option>
+                <option value="广州">广州</option>
+                <option value="深圳">深圳</option>
+                <option value="曹县">曹县</option>
+            </select>
+            <button class="add">
+                <i><ion-icon name="add-circle-outline"></ion-icon></i>
+                添加</button>
+        </section>
+        <nav>
+            <h4>共有数据1条</h4>
+        </nav>
+        <table border="1px" cellspacing="0" align="center" valign="middle">
+            <thead>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>城市</th>
+                <th>录入时间</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>宝批龙</td>
+                    <td>23</td>
+                    <td>女</td>
+                    <td>12000</td>
+                    <td>北京</td>
+                    <td>2099/9/9 08:08:08</td>
+                    <td>
+                        <a href="javascript:">
+                            <i> <ion-icon name="trash-outline"></ion-icon></i>
+                            删除
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- //js部分 -->
+    <script>
+
+        const initData = [
+            {
+                stuId: 1,
+                uname: '娜美',
+                age: 20,
+                salary: '10000',
+                gender: '女',
+                city: '巴黎',
+                time: '2099/9/9 10:10:10'
+            }
+        ]
+        // localStorage.setItem('data', JSON.stringify(initData));
+        //获取数据渲染到页面中
+        const ary = JSON.parse(localStorage.getItem('data')) || [];
+
+        let tbody = document.querySelector('tbody');
+        let nav_h4 = document.querySelector('nav').querySelector('h4');
+
+
+        //前面为真，后面不执行
+        function render() {
+            // (1). 利用map遍历数组，返回对应tr的数组
+            const trAry = ary.map(function (ele, index) {
+                return `
+          <tr>
+            <td>${ele.stuId}</td>
+            <td>${ele.uname}</td>
+            <td>${ele.age}</td>
+            <td>${ele.gender}</td>
+            <td>${ele.salary}</td>
+            <td>${ele.city}</td>
+            <td>${ele.time}</td>
+            <td>
+              <a href="javascript:" data-id="${index}">
+                <i><ion-icon name="trash-outline"></ion-icon></i>
+                删除
+              </a>
+            </td>
+          </tr>
+        `
+            })
+            tbody.innerHTML = trAry.join(' ');
+            let count = trAry.length;
+            nav_h4.innerHTML = `共有<i>${count}</i>条数据`;
+        }
+        render();
+        //获取表单元素
+        let info = document.querySelector('.add');
+        let gender = document.querySelector('.gender');
+        let age = document.querySelector('.age');
+        let uname = document.querySelector('.uname');
+        let salary = document.querySelector('.salary');
+        let area = document.querySelector('.area');
+        //复原表单的值
+        function re() {
+            age.value = '';
+            uname.value = '';
+            salary.value = '';
+        }
+        let as = tbody.querySelectorAll('a');
+        //通过点击按钮新增数据
+        info.addEventListener('click', function () {
+            //下面是动画效果部分
+            info.style.transform = 'translateY(-8px)';
+            info.style.transition = 'all 0.2s';
+            info.style.boxShadow = '4px 2px 5px 5px rgba(0, 0, 0, 0.5)';
+            setTimeout(function () {
+                info.style.transform = 'translateY(0)';
+                info.style.boxShadow = '0 0';
+            }, 100)
+            // end
+            //非空判断
+            if (!uname.value || !salary.value || !age.value) {
+                return alert('内容不能为空，请输入值');
+            }
+            //追加数据
+            ary.push({
+                stuId: ary.length ? ary[ary.length - 1].stuId + 1 : 1,
+                uname: uname.value,
+                age: age.value,
+                salary: salary.value,
+                gender: gender.value,
+                city: area.value,
+                time: new Date().toLocaleString(),
+            });
+            //调用渲染
+            render();
+            //清空
+            re();
+            //将数据存入本地存储中
+            localStorage.setItem('data', JSON.stringify(ary));
+            //重新绑定删除事件
+            // 刷新页面
+            location.reload();
+        });
+        //下面是删除事件
+
+        for (let i = 0; i < as.length; i++) {
+            as[i].onclick = function (e) {
+                if (confirm('确定要删除这条数据吗')) {
+                    tbody.removeChild(this.parentNode.parentNode);
+                    //保存到本地存储中
+                    ary.splice(e.target.dataset.id, 1);
+                    //重新渲染
+                    //存入本地存储
+                    localStorage.setItem('data', JSON.stringify(ary));
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>存储复杂数据类型</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: 'xg',
+            age: '21',
+            skill: 'js,html,css,java',
+            description: '我的目标是星辰大海',
+            other: {
+                dream: '成为一个超强的程序原',
+            },
+        }
+        let test = JSON.stringify(obj);
+        localStorage.setItem('uers', test);
+        //判断变量类型
+        console.log(typeof localStorage.getItem('uers'));
+        //将Json字符串转换为对象
+        const Jsonv = JSON.parse(localStorage.getItem('uers'));
+        console.log(Jsonv);
+    </script>
+</body>
+
+</html>
