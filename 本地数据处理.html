@@ -155,6 +155,69 @@
             left: -18px;
             top: -7px;
         }
+
+        .tx {
+            position: relative;
+            background: url(res/1.jpg) no-repeat;
+            background-size: 260px 520px;
+            padding-left: 10px;
+        }
+
+        .tx label {
+            display: block;
+            width: 80px;
+            margin-left: 80px;
+            color: rgb(237, 103, 19);
+            background-color: black;
+        }
+
+        .tx textarea {
+            resize: none;
+            border-radius: 5px;
+            font-size: 14px;
+            color: cadetblue;
+            font-family: "楷书";
+        }
+
+        .tx button {
+            display: block;
+            width: 80px;
+            height: 30px;
+            margin-left: 70px;
+            background-color: violet;
+            border-radius: 5px;
+            color: aliceblue;
+            margin-bottom: 10px;
+        }
+
+        .tx .display {
+            height: 60px;
+            overflow: auto;
+        }
+
+        .tx .display li {
+            width: 238px;
+            background: -webkit-linear-gradient(left, rgb(61, 179, 218), rgb(17, 221, 170));
+            font-size: 16px;
+            font-family: "仿宋";
+            margin-bottom: 5px;
+            border-radius: 5px;
+            animation: ds 3s linear forwards;
+            /* 省略号
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; */
+        }
+
+        @keyframes ds {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 238px;
+            }
+        }
     </style>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -218,6 +281,14 @@
             </tbody>
         </table>
     </div>
+    <!-- //添加文本域 -->
+    <div class="tx">
+        <label for="txt">发布留言板</label>
+        <textarea name="" id="txt" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <div class="display"></div>
+    </div>
+
     <!-- //js部分 -->
     <script>
 
@@ -308,6 +379,7 @@
             });
             //调用渲染
             render();
+
             //清空
             re();
             //将数据存入本地存储中
@@ -315,6 +387,7 @@
             //重新绑定删除事件
             // 刷新页面
             location.reload();
+
         });
         //下面是删除事件
 
@@ -325,12 +398,37 @@
                     //保存到本地存储中
                     ary.splice(e.target.dataset.id, 1);
                     //重新渲染
+                    render()
                     //存入本地存储
                     localStorage.setItem('data', JSON.stringify(ary));
                 }
             }
         }
+        //额外添加的功能
+        var div_tx = document.querySelector('.tx');
+        let textarea = div_tx.querySelector('textarea');
+        let btn2 = div_tx.querySelector('button');
+        let content = div_tx.querySelector('.display');
+        let txValues = JSON.parse(localStorage.getItem('txValues')) || [];
 
+        // 渲染之前存储的文本内容
+        txValues.forEach(function (value) {
+            let li = document.createElement('li');
+            li.textContent = value;
+            content.appendChild(li);
+        });
+
+        btn2.onclick = function () {
+            let currentValue = textarea.value.trim().replace(/\W|妈|草|fuck|日|傻逼|煞笔/ig, '*');
+            if (currentValue !== "") {
+                txValues.push(currentValue); // 将当前值添加到数组中
+                localStorage.setItem('txValues', JSON.stringify(txValues)); // 存储数组
+                let li = document.createElement('li');
+                li.textContent = currentValue;
+                content.appendChild(li);
+                textarea.value = '';
+            }
+        }
     </script>
 </body>
 
