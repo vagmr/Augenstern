@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象解构</title>
+</head>
+
+<body>
+    <script>
+        data = {
+            uname: "打包",
+            age: 13,
+            skill: "swim"
+        }
+        let { uname, age, skill } = data;
+        console.log(uname);
+        //对象数组解构
+        date = [{
+            year: 2023,
+            month: 7,
+            day: 10
+        }, {
+            year: 2022,
+            month: 6,
+            day: 23
+        }
+        ]
+        let [{ year, month, day }, b] = date
+        console.log(year, month, day);
+        console.log(b);
+        //简单的练习一下
+        let pig = {
+            name: "佩奇",
+            age: 6
+        }
+        let { name: nname, age: jage } = pig;
+        console.log(nname, jage)
+        let goods = [
+            {
+                goodNames: "小米",
+                price: 66666,
+            }
+        ]
+        let [{ goodNames, price }] = goods
+        console.log(goodNames, price);
+        //多级对象解构
+        let famaily = {
+            description: "这是一个家庭",
+            famaily: {
+                content: 4,
+                spend: 1000,
+            },
+            jage: 12
+        }
+        let { description, famaily: { content, spend } } = famaily
+    </script>
+</body>
+
+</html>
