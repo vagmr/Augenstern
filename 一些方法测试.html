@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一些方法测试</title>
+</head>
+
+<body>
+    <script>
+        let sums = [1, 2, 3, 3, 4, 1, 41, 414, 41414, 111];
+        //将数组转化为字符串
+        let newstr = sums.join('-');
+        //将字符串转化为数组
+        let newSums = newstr.split('-');//分割符必须是字符串里有的
+        console.log(newSums, newstr);
+    </script>
+</body>
+
+</html>

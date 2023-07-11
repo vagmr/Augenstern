@@ -58,10 +58,47 @@
             content: "¥";
             font-size: 14px;
         }
+
+        a {
+            text-decoration: none;
+            color: black
+        }
+
+        .fliter {
+            position: relative;
+            left: 50%;
+            transform: translateX(-30%);
+            top: 64px;
+            overflow: hidden;
+
+        }
+
+        .fliter a {
+            display: block;
+            width: 220px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: rgb(181, 76, 128);
+            margin-left: 10px;
+            float: left;
+        }
+
+        .fliter a:active,
+        .fliter a:focus {
+            background-color: aquamarine;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
+    <div class="fliter">
+        <a href="javascript:;">0-100元</a>
+        <a href="javascript:;">100-200元</a>
+        <a href="javascript:;">300-400元</a>
+        <a href="javascript:;">400元以上</a>
+    </div>
     <div class="list">
         <!-- <div class="item">
       <img src="" alt="">
@@ -122,17 +159,38 @@
         ]
 
         let str = '';
-        goodsList.forEach(el => {//注：此处的el为对象数组的每个元素，是对象不是数组
-            //先解构出对象的属性
-            let { picture, name, price } = el
-            str += `  <div class="item">
+        var list = document.querySelector('.list');
+        let as = document.querySelectorAll('.fliter a');
+        let standard;
+        //筛选和初始化页面的函数
+        let sift = standard => {
+            str = '';
+            let newgoodList = goodsList.filter(el => el.price > standard)
+            newgoodList.forEach(el => {
+                let { picture, name, price } = el
+                str += `  <div class="item">
       <img src="${picture}" alt="">
       <p class="name">${name}</p>
       <p class="price">${price}</p>
     </div> `;
-        })
-        var list = document.querySelector('.list');
-        list.innerHTML = str;
+            })
+            list.innerHTML = str;
+        }
+        //页面初始化
+        sift(0)
+
+        as[0].onclick = () => {
+            sift(0);
+        }
+        as[1].onclick = () => {
+            sift(100);
+        }
+        as[2].onclick = () => {
+            sift(200);
+        }
+        as[3].onclick = () => {
+            sift(300);
+        }
     </script>
 </body>
 
