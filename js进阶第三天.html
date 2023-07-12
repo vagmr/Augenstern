@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模态框创建</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .modal {
+            width: 300px;
+            min-height: 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            position: fixed;
+            z-index: 999;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            background-color: #fff;
+        }
+
+        .modal .header {
+            line-height: 40px;
+            padding: 0 10px;
+            position: relative;
+            font-size: 20px;
+        }
+
+        .modal .header i {
+            font-style: normal;
+            color: #999;
+            position: absolute;
+            right: 15px;
+            top: -2px;
+            cursor: pointer;
+        }
+
+        .modal .body {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .modal .footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .modal .footer a {
+            padding: 3px 8px;
+            background: #ccc;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 2px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .modal .footer a.submit {
+            background-color: #369;
+        }
+    </style>
+</head>
+
+<body>
+    <button>登录</button>
+    <button>删除</button>
+    <script>
+        function Model(title = '', warn = '') {
+            this.Modalbox = document.createElement('div');
+            this.Modalbox.className = 'modal';
+            this.Modalbox.innerHTML = ` <div class="header">${title} <i>x</i></div>
+    <div class="body">${warn}</div>`;
+        }
+        Model.prototype.open = function () {
+            let box = document.querySelector('.modal');
+            box && box.remove();
+            document.body.append(this.Modalbox);
+            this.Modalbox.querySelector('i').addEventListener('click', () => {
+                //这个地方需要箭头函数,this指向实例对象
+                this.detele();
+            })
+        }
+        Model.prototype.detele = function () {
+            this.Modalbox.remove();
+        }
+        let btn1 = document.querySelector('button:nth-child(1)');
+        btn1.addEventListener('click', () => {
+            let n1 = new Model('登录失败', '不支持的登录操作');
+            n1.open();
+        })
+        document.querySelector('button:nth-child(2)').addEventListener('click', () => {
+            let n2 = new Model('删除失败', '没有删除的权限');
+            n2.open();
+        })
+    </script>
+</body>
+
+</html>
