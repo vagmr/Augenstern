@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖函数实现</title>
+    <!-- //引入lodash库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            margin: 0 auto;
+            transform: translateY(50%);
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector('div');
+        let i = 1;
+        function mv() {
+            div.innerText = i;
+            i++;
+        }
+        div.addEventListener('mousemove', fd(mv, 500));
+        //手写防抖函数
+        function fd(fn, time) {
+            let timer;
+            return () => {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(() => fn(), time);
+            }
+        }
+        //手写节流函数
+        function jl(fn, t) {
+            let timeing = null;
+            return () => {
+                if (!timeing) {
+                    timeing = setTimeout(() => {
+                        fn()
+                        timeing = null;
+                    }, t)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

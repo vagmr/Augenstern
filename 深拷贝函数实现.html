@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝函数实现</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            sname: 'xg',
+            age: 12,
+            salary: 3000,
+            test: {
+                test: 12,
+                teststr: "12",
+            },
+            test1: [12, 34],
+        }
+        function deepCopy(newObj, oldObj) {
+            for (let k in oldObj) {
+                //如果目标对象的某个属性是对象则进入下一轮拷贝
+                if (typeof oldObj[k] === "object" && oldObj[k] !== null) {
+                    //为新对象新建一个对象属性
+                    newObj[k] = Array.isArray(oldObj[k]) ? [] : {};
+                    //让新对象的这个对象属性和老对象的对象属性在进行一轮浅拷贝
+                    deepCopy(newObj[k], oldObj[k]);
+                }
+                else {
+                    newObj[k] = oldObj[k];
+                }
+            }
+        }
+        let o = {};
+        deepCopy(o, obj);
+        o.test.test = 13;
+        console.log(o);
+        console.log(obj);
+    </script>
+</body>
+
+</html>

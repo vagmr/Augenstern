@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝的其他实现</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+        let obj = {
+            sname: 'xg',
+            age: 12,
+            salary: 3000,
+            test: {
+                test: 12,
+                teststr: "12",
+            },
+            test1: [12, 34],
+        }
+        // lodash实现
+        let nObj = _.cloneDeep(obj);
+        // 利用json实现深拷贝
+        let o = JSON.stringify(obj);
+        o = JSON.parse(o);
+        console.log(o);
+        console.log(nObj);
+    </script>
+</body>
+
+</html>
