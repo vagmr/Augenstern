@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axious入门</title>
+    <script src=" https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <p class="test"></p>
+    <div class="news"></div>
+    <script>
+        //使用axious函数
+        let rs;
+        let ns;
+        axios({
+            url: "http://hmajax.itheima.net/api/city",
+            params: {
+                pname: "河北省"
+            }
+        }).then(result => {
+            rs = result.data.list.join('<br>');
+            document.querySelector('.test').innerHTML = rs;
+        })
+        axios({
+            url: "http://hmajax.itheima.net/api/news",
+        }).then(result => {
+            ns = result.data.data;
+            let nns = ns.map(el => { let { title } = el; return title; })
+            console.log(nns);
+            document.querySelector('.news').innerHTML = nns;
+        })
+
+    </script>
+</body>
+
+</html>
