@@ -270,25 +270,45 @@
         // 查询参数名: spoken
         // 查询参数值: 我说的消息
         let send = document.querySelector('.send_img');
-        send.addEventListener('click', () => {
-            let spoken = document.querySelector('.chat_input').value;
-            let chat_list = document.querySelector('.chat_list');
-            console.log(spoken);
+        let spokenInput = document.querySelector('.chat_input');
+        let chatList = document.querySelector('.chat_list');
+        let chatBox = document.querySelector('.chat');
+
+        function sendMessage() {
+            let spoken = spokenInput.value;
+            chatBox.scrollTop = chatBox.scrollHeight;
             axios({
                 method: 'get',
                 url: "http://hmajax.itheima.net/api/robot",
                 params: {
                     spoken
                 }
-            }).then(result => chat_list.innerHTML += `<li class="right">
-                    <span>${result.data.data.info.text}</span>
-                        <img src="./assets/me.png" alt="">
-                    </li>`).catch(error => console.log(error))
-            chat_list.innerHTML += `<li class="left">
-                  <img src="./assets/you.png" alt="">
-                    <span>${spoken}</span>
-                    </li>`;
-        })
+            }).then(result => {
+                chatList.innerHTML += `<li class="right">
+      <span>${result.data.data.info.text}</span>
+      <img src="./assets/me.png" alt="">
+    </li>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }).catch(error => console.log(error));
+
+            chatList.innerHTML += `<li class="left">
+    <img src="./assets/you.png" alt="">
+    <span>${spoken}</span>
+  </li>`;
+            spokenInput.value = "";
+        }
+
+        send.addEventListener('click', () => {
+            sendMessage();
+        });
+
+        spokenInput.addEventListener('keyup', e => {
+            if (e.code === "Enter") {
+                sendMessage();
+            }
+
+        });
+
     </script>
 </body>
 

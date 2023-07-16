@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传图片</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <img src="" alt="" class="myimg">
+</head>
+
+<body>
+    <form action="">
+        <input type="file" class="fl">
+    </form>
+    <script>
+        document.querySelector('.fl').addEventListener('change', e => {
+            console.log(e.target.files[0]);
+            //使用FormDate构造函数
+            const fd = new FormData();
+            fd.append('img', e.target.files[0])
+            axios({
+                url: 'http://hmajax.itheima.net/api/uploadimg',
+                method: 'post',
+                data: fd,
+            }).then(result => {
+                let imgUrl = result.data.data.url;
+                document.querySelector('.myimg').src = imgUrl;
+            })
+        })
+    </script>
+</body>
+
+</html>
