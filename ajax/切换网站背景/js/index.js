@@ -20,5 +20,18 @@ document.querySelector('.bg-ipt').addEventListener('change', e => {
         let imgUrl = result.data.data.url;
         //为body设置背景图片
         document.body.style.backgroundImage = `url(${imgUrl})`;
+        //将图片url保存到localStorage
+        localStorage.setItem('bgUrl', imgUrl);
     })
+
 })
+//页面加载完毕时显示背景图片
+window.addEventListener('load', () => {
+    //获取localStorage中的背景名称
+    let bgUrl = localStorage.getItem('bgUrl');
+    //如消背景存在，则为body设置背景名称
+    if (bgUrl) {
+        document.body.style.backgroundImage = `url(${bgUrl})`;
+    }
+
+});
