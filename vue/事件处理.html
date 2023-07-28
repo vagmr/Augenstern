@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="root">
+        <h1>{{title}}</h1>
+        <span :title="tip2">
+            鼠标悬停几秒查看提示信息
+        </span>
+        <button @click="showInfo">{{tip}}</button>
+        <button @click="showInfo2(6665,$event)">{{tip}}</button>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                title: "点击下方触发点击事件",
+                tip: '点击事件1',
+                tip2: "页面加载于" + new Date().toLocaleString(),
+            },
+            methods: {
+                showInfo: function () {
+                    alert('同学你好');
+                },
+                showInfo2(number, a) {
+                    console.log(number, a);
+                    alert(`同学你好,${number}`);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
