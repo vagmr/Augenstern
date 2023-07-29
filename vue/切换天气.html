@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气切换</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="root">
+        <h2>今天天气很{{info}}</h2>
+        <button @click.stop="toggle">{{tip}}</button>
+        <span>{{change}}</span>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                isHot: true,
+                tip: '点击切换天气',
+                change: ''
+            },
+            computed: {
+                info() {
+                    return this.isHot ? "炎热" : "凉爽";
+                }
+            }, methods: {
+                toggle() {
+                    if (this.isHot) this.isHot = false;
+                    else this.isHot = true;
+                }
+            },
+            watch: {
+                info: {
+                    handler(o, n) {
+                        this.change = `原来是${n}，现在是${o}`;
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

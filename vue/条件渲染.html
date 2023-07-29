@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="root">
+        <span :title="a">{{con}}</span><br>
+        <button @click="a++">点击a+1,a={{a}}</button>
+        <p v-show="a === 2">vue</p>
+        <p v-if="a === 2">react</p>
+        <p v-else-if="a === 3">react2</p>
+        <p v-else-if="a === 4">react3</p>
+        <!-- v-if配合template使用 -->
+        <template v-if="a === 5">
+            <span>fuck vue</span>
+            <span>fuck vue</span>
+            <span>fuck vue</span>
+            <span>fuck vue</span>
+        </template>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                a: 1,
+                con: "欢迎学习条件渲染",
+            }
+        })
+    </script>
+</body>
+
+</html>

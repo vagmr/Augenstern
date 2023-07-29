@@ -19,13 +19,45 @@
 		"scope": "javascript,typescript,html",
 		"prefix": "v1",
 		"body": [
+			"const vm =",
 			"new Vue({",
-			"  el: '#$1',",
+			"  el: '#root$1',",
 			"  data: {",
 			"    $2",
 			"  }",
 			"})"
 		],
 		"description": "Vue组件模板"
+	},
+	"xv": {
+		"scope": "html",
+		"prefix": "xv",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"en\">",
+			"",
+			"<head>",
+			"    <meta charset=\"UTF-8\">",
+			"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+			"    <title>条件渲染</title>",
+			"    <script src=\"js/vue.js\"></script>",
+			"    <link rel=\"shortcut icon\" href=\"logo.svg\" type=\"image/x-icon\">",
+			"</head>",
+			"",
+			"<body>",
+			"    <script>",
+			"        Vue.config.productionTip = false;",
+			"        const vm = new Vue({",
+			"            el: '#root',",
+			"            data: {",
+			"",
+			"            }",
+			"        })",
+			"    </script>",
+			"</body>",
+			"",
+			"</html>"
+		],
+		"description": "生成Vue模板"
 	}
 }

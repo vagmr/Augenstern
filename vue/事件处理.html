@@ -7,6 +7,14 @@
     <title>事件处理</title>
     <script src="js/vue.js"></script>
     <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+    <style>
+        .demo {
+            height: 50px;
+            width: 50px;
+            background-color: skyblue;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -17,15 +25,23 @@
         </span>
         <button @click="showInfo">{{tip}}</button>
         <button @click="showInfo2(6665,$event)">{{tip}}</button>
+        <div class="demo" @click="showInfo">
+            <button @click.stop.once="showInfo">{{tip}}</button>
+            <a href="private.vagmrgpt.top" @click.prevent.stop="showInfo2">{{tip}}</a>
+        </div>
+        <!-- //可以连写 -->
+        <input type="text" placeholder="按下回车时显示" v-on:keyup.ctrl.y="showmsg">
     </div>
 
     <script>
         Vue.config.productionTip = false;
+        //自定义别名
+        Vue.config.keyCodes.huiche = 13;
         const vm = new Vue({
             el: '#root',
             data: {
                 title: "点击下方触发点击事件",
-                tip: '点击事件1',
+                tip: '点击事件',
                 tip2: "页面加载于" + new Date().toLocaleString(),
             },
             methods: {
@@ -35,6 +51,11 @@
                 showInfo2(number, a) {
                     console.log(number, a);
                     alert(`同学你好,${number}`);
+                },
+                showmsg(e) {
+
+                    // if (e.key !== 'Enter') return;
+                    console.log(e.target.value);
                 }
             },
         })

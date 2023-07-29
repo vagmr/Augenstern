@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式绑定</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+    <style>
+        .basic {
+            width: 400px;
+            height: 400px;
+            border: 2px solid brown;
+        }
+
+        .happy {
+            background: linear-gradient(to right, rgb(203, 157, 31), rgb(211, 14, 20));
+        }
+
+        .sad {
+            background-color: cadetblue;
+        }
+
+        .normal {
+            background-color: darkgray;
+        }
+
+        .style1 {
+            box-shadow: 0 0 0 2rem skyblue;
+        }
+
+        .style2 {
+            outline: 0.5rem solid rgb(95, 19, 226);
+        }
+
+        .style3 {
+            border: 0.5rem outset pink;
+            outline: 0.5rem solid khaki;
+            box-shadow: 0 0 0 2rem skyblue;
+            border-radius: 12px;
+            font: bold 1rem sans-serif;
+            margin: 2rem;
+            padding: 1rem;
+            outline-offset: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="basic" :class="style" @click.stop="changeMood"></div>
+        <!-- 数组形式 -->
+        <div class="basic" :class="styleArr"></div>
+        <!-- 对象形式 -->
+        <div class="basic" :class="styleObj"></div>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                style: 'normal',
+                styleArr: ["happy", "sad"],
+                styleObj: {
+                    style1: true,
+                    style2: true,
+                }
+            }, methods: {
+                changeMood() {
+                    const styleArr = ["happy", "sad", "normal", "style1", "style2", "style3"];
+                    let index = Math.floor(Math.random() * 6);
+                    this.style = styleArr[index];
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

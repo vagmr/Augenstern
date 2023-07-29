@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue姓名案例</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        input {
+            display: block;
+            width: 400px;
+            height: calc(30px *1.2);
+            margin: 15px auto;
+        }
+
+        span {
+            margin-left: 570px;
+            font-family: '楷书';
+            font-size: 18px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <input type="text" v-model="firstName">
+        <input type="text" v-model="lastName">
+        <span>全名为{{fullName2}}</span>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: '张',
+                lastName: '三',
+            },
+            methods: {
+                fullName() {
+                    return this.firstName + "-" + this.lastName;
+                }
+            },
+            computed: {
+                fullName2: {
+                    get() {
+                        return this.firstName + "-" + this.lastName;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
