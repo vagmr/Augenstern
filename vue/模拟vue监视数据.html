@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟vue监视数据</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+            name: 'xg',
+            age: 16,
+        }
+
+        let obs = new Observer(data);
+        let vm = {};
+        vm._data = data = obs;
+        function Observer(obj) {
+            let keys = Object.keys(obj);
+            keys.forEach(k => {
+                Object.defineProperty(this, k, {
+                    get() {
+                        return obj[k];
+                    },
+                    set(value) {
+                        console.log('set被调用');
+                        obj[k] = value;
+                    }
+                })
+            })
+        }
+    </script>
+</body>
+
+</html>

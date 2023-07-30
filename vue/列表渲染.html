@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="root">
+        <h1>人员列表</h1>
+        <ul>
+            <li v-for="(p,index) in persons" :key="p.id">
+                {{p.name}} - {{p.age}}-{{index}}
+                <input type="text">
+            </li>
+            <!-- //遍历对象 -->
+            <h2>遍历对象</h2>
+            <li v-for="(v,k) of car" :key="k">
+                {{k}} - {{v}}
+            </li>
+            <h2>--遍历字符串--</h2>
+            <!--遍历字符串-->
+            <li v-for="(v,index) of str" :key="index">
+                {{index}} ---- {{v}}
+            </li>
+            <h2>遍历指定次数</h2>
+            <li v-for="(v,index) of 3">
+                {{index}} ---> {{v}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                persons: [
+                    { id: "001", name: "张三", age: 23 },
+                    { id: "002", name: "李四", age: 30 },
+                    { id: "003", name: "王五", age: 28 },
+                    { id: "004", name: "赵六", age: 25 },
+                    { id: "005", name: "陈七", age: 27 },
+                    { id: "006", name: "刘八", age: 32 },
+                    { id: "007", name: "周九", age: 20 },
+                    { id: "008", name: "吴十", age: 29 },
+                    { id: "009", name: "郑十一", age: 26 },
+                    { id: "010", name: "黄十二", age: 24 },
+                    { id: "011", name: "孙十三", age: 31 },
+                ],
+                car: {
+                    name: '宝马x5',
+                    price: 1000000,
+                    color: '褐色'
+                },
+                str: "乘风破浪会有时,直挂云帆济沧海",
+            }
+        })
+    </script>
+</body>
+
+</html>

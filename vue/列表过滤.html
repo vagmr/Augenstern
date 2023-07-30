@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表过滤</title>
+    <script src="js/vue.js"></script> <!-- 引入 Vue.js -->
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+    <style>
+        li {
+            list-style: none;
+            font-family: 'Lucida Sans';
+            font-size: 18px;
+            border: 3px solid gold;
+            background-color: rgb(14, 180, 180);
+            width: 400px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 5px 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"> <!-- Vue 绑定的根元素 -->
+        <h1>人员列表</h1>
+        <input type="text" placeholder="请输入搜索条件" v-model="keyWord"> <!-- 输入框，使用 v-model 双向绑定到 keyWord 变量 -->
+        <button @click="sortType = 2">年龄升序</button> <!-- 点击按钮将 sortType 设置为 2 -->
+        <button @click="sortType = 1">年龄降序</button> <!-- 点击按钮将 sortType 设置为 1 -->
+        <button @click="sortType = 0">原顺序</button> <!-- 点击按钮将 sortType 设置为 0 -->
+        <ul>
+            <li v-for="p of filArys" :key="p.id"> <!-- 循环遍历 filArys，:key="p.id" 是为了给每个 li 添加唯一的 key -->
+                {{p.name}} ----- {{p.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false; // 禁用生产模式提示
+        const vm = new Vue({ // 创建 Vue 实例
+            el: '#root', // 将 Vue 绑定到 id 为 root 的元素上
+            data: {
+                keyWord: '', // 初始化 keyWord 变量为空字符串
+                sortType: 0, // 初始化 sortType 变量为 0
+                peoples: [
+                    { id: '001', name: '周杰伦', age: 47 },
+                    { id: '002', name: '张学友', age: 58 },
+                    { id: '003', name: '林俊杰', age: 39 },
+                    { id: '004', name: '王力宏', age: 45 },
+                    { id: '005', name: '陈奕迅', age: 46 },
+                    { id: '006', name: '李宇春', age: 36 },
+                    { id: '007', name: '邓紫棋', age: 29 },
+                    { id: '008', name: '蔡依林', age: 41 },
+                    { id: '009', name: '刘德华', age: 59 },
+                    { id: '010', name: '林志玲', age: 46 },
+                    { id: '011', name: '范冰冰', age: 40 },
+                    { id: '012', name: '赵薇', age: 45 },
+                    { id: '013', name: '杨幂', age: 34 },
+                    { id: '014', name: '刘亦菲', age: 33 },
+                    { id: '015', name: '迪丽热巴', age: 29 },
+                    { id: '016', name: '杨紫', age: 26 },
+                    { id: '017', name: '鞠婧祎', age: 23 },
+                    { id: '018', name: '李易峰', age: 34 },
+                    { id: '019', name: '吴亦凡', age: 30 },
+                    { id: '020', name: '鹿晗', age: 31 },
+                    { id: '021', name: '黄晓明', age: 43 },
+                    { id: '022', name: '郭德纲', age: 47 },
+                    { id: '023', name: '岳云鹏', age: 45 },
+                    { id: '024', name: '杨坤', age: 45 },
+                    { id: '025', name: '谢娜', age: 40 },
+                    { id: '026', name: '何炅', age: 47 },
+                    { id: '027', name: '汪涵', age: 47 },
+                    { id: '028', name: '毛阿敏', age: 54 },
+                    { id: '029', name: '那英', age: 53 },
+                    { id: '030', name: '王菲', age: 51 }
+                ],
+                filAry: [], // 初始化过滤后的列表为空数组
+            },
+            watch: { // 监听 keyWord 变化
+                keyWord: {
+                    immediate: true, // 立即执行监听函数
+                    handler(Nv) { // 监听函数
+                        this.filAry = this.peoples.filter(p => { // 根据输入的关键字过滤人员列表
+                            return p.name.includes(Nv);
+                        })
+                    }
+                }
+            },
+            computed: { // 计算属性
+                filArys() { // 过滤后的人员列表
+                    this.filAry = this.peoples.filter(p => { // 根据输入的关键字过滤人员列表
+                        return p.name.includes(this.keyWord);
+                    })
+                    if (this.sortType !== 0) { // 根据 sortType 对过滤后的列表进行排序
+                        this.filAry.sort((a, b) => {
+                            return this.sortType === 1 ? b.age - a.age : a.age - b.age;
+                        })
+                    }
+                    return this.filAry // 返回过滤并排序后的列表
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

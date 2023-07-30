@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据监视总结</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="root">
+        <button @click="students.age++">年龄加1</button><br>
+        <button @click="addSex">添加性别属性，默认值男</button><br>
+        <button @click="addFriends">在列表首位添加一个朋友</button><br>
+        <button @click="moFirName">修改第一个朋友的名字为张三</button><br>
+        <button @click="addHobby">添加一个爱好</button><br>
+        <button @click="modFirHobby">修改第一个爱好为开车</button>
+        <h1>学生情况</h1>
+        <h3>学生姓名 {{students.name}}</h3>
+        <h3>学生年龄:{{students.age}}</h3>
+        <h3 v-if="students.sex">学生性别:{{students.sex}}</h3>
+        <h2>习惯如下</h2>
+        <ul>
+            <li v-for="(el,index) of students.hobby" :key="index">
+                {{el}} ---- {{index}}
+            </li>
+        </ul>
+        <h2>朋友情况</h2>
+        <ul>
+            <li v-for="(el,index) in students.friends" :key="el.dec">
+                {{el.name}} ---{{el.dec}}--- {{index}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                students: {
+                    name: 'xg',
+                    age: 18,
+                    hobby: ['唱', '跳', 'rap', '篮球'],
+                    friends: [{
+                        name: '雪豹', dec: '芝士雪豹'
+                    }, { name: '狐狸', dec: '芝士狐狸' }]
+                }
+            }, methods: {
+                addSex() {
+                    Vue.set(this.students, 'sex', '男');
+                },
+                addFriends() {
+                    this.students.friends.unshift({ name: '宝批龙', dec: '芝士宝批龙' });
+                },
+                moFirName() {
+                    this.students.friends[0].name = '张三';
+                },
+                addHobby() {
+                    this.students.hobby.push('洛可可');
+                },
+                modFirHobby() {
+                    this.students.hobby.splice(0, 1, '开车');
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
