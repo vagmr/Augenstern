@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义指令</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id='root'>
+        <input type="text" v-fbind:value="n">
+        <button @click="n++">点击加</button>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                n: 1,
+            },
+            directives: {
+                fbind: {
+                    //指令与元素绑定时调用
+                    bind(el, binding) {
+                        el.value = binding.value;
+                    },
+                    //指令元素插入页面时调用
+                    inserted(el) {
+                        el.focus();
+                    },
+                    //指令元素发生变化时调用
+                    update(el, binding) {
+                        el.value = binding.value;
+                        el.focus();
+                    },
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

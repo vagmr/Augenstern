@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+    <script src="js/dayjs.min.js"></script>
+</head>
+
+<body>
+    <div id='root'>
+        <h1>现在的时间是</h1>
+        <h3>{{time}}</h3>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                time: dayjs().format('YYYY--MM--DD HH:mm:ss  Z'),
+            }
+        })
+    </script>
+</body>
+
+</html>
