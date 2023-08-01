@@ -60,5 +60,26 @@
 			"</html>"
 		],
 		"description": "生成Vue模板"
+	},
+	"sp": {
+		"scope": "code-snippets",
+		"prefix": "sp",
+		"body": [
+			"\"$1\": {",
+			"\t\"scope\": \"$2\",",
+			"\t\"prefix\": \"$3\",",
+			"\t\"body\": [",
+			"\t\t$4",
+			"\t]",
+			"}"
+		],
+		"description": "生成代码片段"
+	},
+	"div": {
+		"scope": "vue-html",
+		"prefix": "div",
+		"body": [
+			"<div></div>"
+		]
 	}
 }

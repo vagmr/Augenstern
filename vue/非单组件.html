@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非单组件</title>
+    <script src="js/vue.js"></script>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id='root'>
+
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        //创建学生组件
+        const students = Vue.extend({
+            template: ` <div><h1>学生信息：</h1>
+        <h2> {{name}} -->{{age}}</h2></div>
+        `,
+            data() {
+                return {
+                    name: 'xg',
+                    age: 23,
+                }
+            }
+        })
+        //创建school组件
+        const school = Vue.extend({
+            template: ` 
+            <div>
+            <h1>学校信息：</h1>
+        <h2>{{address}} ---- {{name}} ->{{rank}}</h2>
+        <hr>
+               <stu></stu>
+        </div>
+        `
+            ,
+            data() {
+                return {
+                    address: '武汉',
+                    name: '武汉大学',
+                    rank: '985'
+                }
+            },
+            //嵌套组件注册
+            components: {
+                stu: students,
+            }
+        })
+        //创建hello组件
+        const hello = {
+            template: `<div>
+                <h1>{{msg}}</h1>
+                </div>`,
+            data() {
+                return { msg: '莫等闲，白了少年头，空悲切' }
+            }
+
+        }
+
+        const app = {
+            template:
+                `<div><hello></hello>
+                <school></school>
+                </div>`,
+            components: {
+                school, hello
+            }
+        }
+
+        const vm = new Vue({
+            el: '#root',
+            template: `<app></app>`,
+            //注册组件（局部注册）
+            components: {
+                app
+            }
+        })
+        function Test() {
+            this.a = 1;
+            this.b = 2;
+        }
+        let t1 = new Test();
+        console.log(Test.prototype);
+        console.log(t1.__proto__);
+        Test.prototype.x = 34;
+        Test.prototype = new Array();
+        Test.prototype.constructor = Test;
+
+        console.log(t1.__proto__ === Test.prototype);
+        let t2 = new Test();
+        console.log(t2.__proto__ === Test.prototype);
+    </script>
+
+</body>
+
+</html>
