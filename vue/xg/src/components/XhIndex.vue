@@ -16,9 +16,10 @@ export default {
   name: "XH",
   data() {
     return {
-      list: [
-        { id: 1, name: "吃饭", done: false },
-        { id: 2, name: "睡觉", done: false },
+      //优先从本地存储中获取
+      list: JSON.parse(localStorage.getItem("list")) || [
+        { id: 1, name: "吃饭", done: false, time: "2099/9/3 20:25:18" },
+        { id: 2, name: "睡觉", done: false, time: "2099/9/3 20:25:18" },
       ],
     };
   },
@@ -34,6 +35,14 @@ export default {
     },
   },
   components: { ToDoHeader, ToDoMain, ToDoFooter },
+  watch: {
+    list: {
+      deep: true,
+      handler(val) {
+        localStorage.setItem("list", JSON.stringify(val));
+      },
+    },
+  },
 };
 </script>
 
@@ -380,5 +389,21 @@ html .clear-completed:active {
   position: absolute;
   right: 50px;
   top: 12px;
+}
+.todo-list .todo .view .check {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 30px;
+  right: 130px;
+  top: 12px;
+}
+.todo-list .todo .view #time {
+  position: absolute;
+  right: 200px;
+  top: 17px;
+  font-family: cursive;
+  font-weight: 700;
+  font-size: 24px;
 }
 </style>

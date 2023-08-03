@@ -6,7 +6,10 @@
         <div class="view">
           <span class="index">{{ el.id }}.</span>
           <label>{{ el.name }}</label
-          ><strong>{{ el.done ? "完成" : "未完成" }}</strong>
+          ><i id="time">{{ el.time }}</i>
+          <input type="checkbox" v-model="el.done" class="check" /><strong>{{
+            el.done ? "完成" : "未完成"
+          }}</strong>
           <button class="destroy" @click="delOne(el.id)"></button>
         </div>
       </li>
