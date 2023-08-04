@@ -1,7 +1,7 @@
 <template>
   <div class="usersInfo">
     <h3>我是个人信息组件</h3>
-    <div>姓名：{{ name }}</div>
+    <div v-color="color[0]">姓名：{{ name }}</div>
     <div>年龄：{{ age }}</div>
     <div>是否单身:{{ isSingle ? "是" : "否" }}</div>
     <div>座驾:{{ car }}</div>
@@ -11,6 +11,17 @@
         {{ h }}
       </li>
     </div>
+    <input type="text" :value="msg" @input="msg = $event.target.value" />
+    <div class="app">
+      <div v-if="isShowEdit">
+        <input type="text" v-model="editValue" ref="inp" />
+        <button>确认</button>
+      </div>
+      <div v-else>
+        <span>{{ title }}</span>
+        <button @click="editFn">编辑</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -18,8 +29,24 @@
 export default {
   name: "UsersInfo",
   data() {
-    return {};
+    return {
+      msg: "v-model的原理",
+      title: "大标题",
+      isShowEdit: false,
+      editValue: "",
+      color: ["green", "skyblue"],
+    };
   },
+  methods: {
+    editFn() {
+      this.isShowEdit = true;
+      this.$nextTick(() => {
+        this.$refs.inp.focus();
+      });
+      //使用updated也可行
+    },
+  },
+
   props: {
     name: {
       type: String,

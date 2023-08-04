@@ -11,7 +11,6 @@ import BB from "./BaseB";
 
 export default {
   name: "BaseIndex",
-  data() {},
   components: { BA, BB },
 };
 </script>

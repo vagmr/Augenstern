@@ -1,10 +1,14 @@
 <template>
-  <div class="ProBar">
-    <div :class="inner" :style="{ width: wS + '%' }"></div>
-    <span>{{ wS }} %</span>
-    <!-- // eslint-disable-next-line vue/no-mutating-props -->
-    <button @click="wS++">点我增加进度条</button>
-    <button @click.once="anima">点我使进度条自己移动</button>
+  <div class="bg">
+    <div class="ProBar">
+      <div :class="inner" :style="{ width: wS + '%' }"></div>
+      <span>{{ wS }} %</span>
+      <!-- // eslint-disable-next-line vue/no-mutating-props -->
+      <button @click="wS++">点我增加进度条</button>
+      <button @click.once="anima">点我使进度条自己移动</button>
+      <!-- 传入定制内容 -->
+      <slot><p>我是个人信息组件</p></slot>
+    </div>
   </div>
 </template>
 
@@ -25,8 +29,7 @@ export default {
       validator(val) {
         if (val >= 0 && val <= 100) return true;
         else {
-          console.error("传值必须在0-100之间");
-          return false;
+          throw new Error("传值必须在0-100之间");
         }
       },
     },
@@ -47,14 +50,17 @@ export default {
       }, 30);
     },
   },
+  beforeDestroy() {
+    clearInterval(this.protime);
+  },
 };
 </script>
 
-<style>
+<style scoped>
 /* //进度条样式设置 */
 .ProBar {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: 600px;
@@ -96,5 +102,11 @@ export default {
 }
 .ani {
   animation: pro 3s linear infinite;
+}
+.bg {
+  border: 3px solid #9e1010;
+  width: 600px;
+  height: 200px;
+  background: linear-gradient(to right, #109e9c, #109e89);
 }
 </style>
