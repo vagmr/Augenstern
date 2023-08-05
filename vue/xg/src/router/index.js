@@ -36,7 +36,7 @@ export const router = new VueRouter({
         { path: '/home', component: HomePage },
         { path: '/search', component: SearchPage },
         {
-            path: '/mjindex', component: Layout,
+            path: '/mjindex', component: Layout, redirect: '/artic',
             //配置子路由
             children: [{
                 path: '/artic', component: ArticlePage
@@ -46,7 +46,8 @@ export const router = new VueRouter({
             { path: '/like', component: Like },
             ]
         },
-        { path: '/dtl', component: ArticleDetail },
+        //传参写在目标页面path后面
+        { path: '/dtl/:id?', component: ArticleDetail },
 
         //404页面
         { path: '*', component: NotFound },

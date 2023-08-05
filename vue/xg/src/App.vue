@@ -7,7 +7,9 @@
     </div>
     <div class="top">
       <!-- 路由出口 → 匹配的组件所展示的位置 -->
-      <router-view></router-view>
+      <keep-alive :include="['LayoutPage']">
+        <router-view></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
