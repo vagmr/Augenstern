@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+        //自动修正错误
+        "source.fixAll": true
+    }
+}
