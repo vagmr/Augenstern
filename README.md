@@ -1,6 +1,6 @@
 # Augenstern
-该项目是我前端的一个新的起点
-## 从 四月 10号, 2023第一次提交，到 8月 7号, 2023的最后一次提交,这个仓库经历174次提交总历时近四个月终于在今天告一段落了，也承载了我很多的回忆和汗水，我将从今天出发再次开启新的征程-- end
+前端学习
+## -- end
 ##实例图片
 ![图片描述](https://tse3-mm.cn.bing.net/th/id/OIP-C.AAWaQawRUe1qfyoceRhPjAHaNK?pid=ImgDet&rs=1)
 
